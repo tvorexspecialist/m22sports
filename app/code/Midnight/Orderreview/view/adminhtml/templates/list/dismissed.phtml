@@ -1,0 +1,38 @@
+<?php
+/** @var $this \Midnight\Orderreview\Block\Adminhtml\OrderList\Dismissed */
+$_orders = $this->getOrders();
+?>
+<div class="admin__data-grid-wrap">
+    <table class="data-grid data-grid-draggable orderreview-table" cellspacing="0">
+        <thead>
+        <tr class="headings">
+            <th><?= __('Name')?></th>
+            <th><?= __('Date')?></th>
+            <th><?= __('Total')?></th>
+            <th><?= __('Payment')?></th>
+            <th><?= __('Status')?></th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+        $iterator = 0;
+        ?>
+        <?php foreach ($_orders as $_order): ?>
+            <?php
+            $status = $this->getStatus($_order);
+            ?>
+            <tr class="data-row order <?= $this->getOrderClass($_order) ?> <?= $iterator++ % 2 ? ' _odd-row' : '' ?>">
+                <td><?= $_order->getCustomerName() ?></a></td>
+                <td><?= $_order->getCreatedAt() ?></td>
+                <td><?= $_order->formatPrice($_order['base_grand_total']) ?></td>
+                <td><?= $this->getPaymentMethod($_order) ?></td>
+                <td>
+                    <a href="<?= $this->getOrderUrl('sales/order/view', array('order_id' => $_order->getId())) ?>">
+                        <?= $status ?>
+                    </a>
+                </td>
+            </tr>
+        <?php endforeach ?>
+        </tbody>
+    </table>
+</div>

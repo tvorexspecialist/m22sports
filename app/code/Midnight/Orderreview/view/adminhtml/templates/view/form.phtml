@@ -1,0 +1,43 @@
+<?php
+/** @var $this Midnight\Orderreview\Block\Adminhtml\View\Form */
+$order = $this->getOrder();
+$_billing = $order->getBillingAddress();
+$_shipping = $order->getShippingAddress();
+$_customer = $this->getCustomer($order->getCustomerId());
+$accountNumber = '';
+if(!empty($_customer->getCustomAttribute('account_number'))){
+    $accountNumber = $_customer->getCustomAttribute('account_number')->getValue();
+}
+
+?>
+<form action="<?= $this->geFormUrl('*/*/confirm', array('id' => $order->getId())) ?>" method="post"
+      class="review-form">
+    <h5><?= __('Bezahl Informationen')?></h5>
+    <?= $this->input('form_key', $this->getFormKey(), 'hidden') ?>
+    <?= $this->input('order_id', $order->getId(), 'hidden') ?>
+    <?php $input = $accountNumber ? $accountNumber . $this->input('account_number', $accountNumber, 'hidden') : $this->input('account_number', $accountNumber);
+    ?>
+    <?= $this->formRow('email', $order->getCustomerEmail(), 'E-Mail', $order->getCustomerEmail()) ?>
+    <?= $this->formRow('account_number', $accountNumber, 'Kundennummer', $input) ?>
+    <?= $this->formRow('billing[prefix]', ucwords($_billing->getPrefix()), 'Anrede') ?>
+    <?= $this->formRow('billing[firstname]', ucwords($_billing->getFirstname()), 'Vorname'); ?>
+    <?= $this->formRow('billing[lastname]', ucwords($_billing->getLastname()), 'Nachname') ?>
+    <?= $this->formRow('billing[street]', ucwords($_billing->getStreet()[0]), 'Straße') ?>
+    <?= $this->formRow('billing[postcode]', $_billing->getPostcode(), 'Postleitzahl') ?>
+    <?= $this->formRow('billing[city]', ucwords($_billing->getCity()), 'Ort') ?>
+    <?= $this->formRow('billing[region]', ucwords($_billing->getRegion()), 'Bundesland') ?>
+    <?= $this->formRow('billing[country]', $_billing->getCountryId(), 'Land') ?>
+    <?= $this->formRow('billing[telephone]', $_billing->getTelephone(), 'Telefon') ?>
+    <br/>
+    <h5><?= __('Liefer Informationen')?></h5>
+    <?= $this->formRow('shipping[prefix]', ucwords($_shipping->getPrefix()), 'Anrede') ?>
+    <?= $this->formRow('shipping[firstname]', ucwords($_shipping->getFirstname()), 'Vorname') ?>
+    <?= $this->formRow('shipping[lastname]', ucwords($_shipping->getLastname()), 'Nachname') ?>
+    <?= $this->formRow('shipping[street]', ucwords($_shipping->getStreet()[0]), 'Straße') ?>
+    <?= $this->formRow('shipping[postcode]', $_shipping->getPostcode(), 'Postleitzahl') ?>
+    <?= $this->formRow('shipping[city]', ucwords($_shipping->getCity()), 'Ort') ?>
+    <?= $this->formRow('shipping[region]', ucwords($_shipping->getRegion()), 'Bundesland') ?>
+    <?= $this->formRow('shipping[country]', $_shipping->getCountryId(), 'Land') ?>
+    <?= $this->formRow('shipping[telephone]', $_shipping->getTelephone(), 'Telefon') ?>
+    <input type="submit" style="display: inline-block;" value="Bestellung freigeben"/>
+</form>

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="../groups.xsd">
+    <group name="customer_entity">
+        <attribute>account_number</attribute>
+    </group>
+</config>

@@ -1,0 +1,24 @@
+<?php
+$suggestions = $this->getSuggestions();
+?>
+
+<?php if (count($suggestions)): ?>
+    <ul class="suggestions" style="display: none;">
+        <?php foreach ($suggestions as $customer): ?>
+            <li data-customer="<?= htmlentities($this->getCustomerJson($customer)) ?>"<?php if ($customer->isInactive()): ?> class="inactive"<?php endif ?>>
+                <p>
+                    <?= $customer->getFirstname() ?> <?= $customer->getLastname() ?><?php if ($customer->isInactive()): echo __('(Inaktiv!)'); endif ?>
+                    <br />
+                    <?= $customer->getStreet() ?><br />
+                    <?= $customer->getPostcode() ?> <?= $customer->getCity() ?>
+                </p>
+
+                <p><?=__('Kundennummer: ')?> <?= $customer->getAccountNumber(); ?></p>
+
+                <p><?=__('E-Mail: ')?> <?= $customer->getEmail() ?></p>
+            </li>
+        <?php endforeach ?>
+    </ul>
+<?php else: ?>
+    <p><?=__('Es wurden keine passenden Vorschläge gefunden.')?></p>
+<?php endif ?>

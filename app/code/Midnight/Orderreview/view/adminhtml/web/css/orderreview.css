@@ -1,0 +1,121 @@
+/*-----------Order list styles-----------*/
+.order.deny td{
+    color: #f00;
+}
+.order.warning td{
+    color: #cc0;
+}
+table.orderreview-table {
+    margin-bottom: 1em;
+}
+table.orderreview-table .headings{
+    height: 3em;
+}
+table.orderreview-table .headings th{
+    text-align: center;
+    vertical-align: middle;
+}
+table.orderreview-table th:nth-child(1) {
+    width: 35em;
+}
+
+table.orderreview-table th:nth-child(2) {
+    width: 25em;
+}
+
+table.orderreview-table th:nth-child(3) {
+    width: 10em;
+}
+
+table.orderreview-table th:nth-child(4) {
+    width: 20em;
+}
+
+/*-----------Order view styles-----------*/
+
+.orderreview-listcontroller-view form.review-form {
+    display: table;
+}
+
+.review-form  .form-row {
+    display: table-row;
+}
+
+.review-form  label, .review-form .inputs {
+    display: table-cell;
+    padding: .5em;
+}
+
+.review-form  label {
+    padding-right: .5em;
+    text-align: right;
+}
+
+.review-form  label:after {
+    content: ':';
+}
+
+.review-form input, .review-form .suggestion {
+    /*margin: 0;*/
+    /*padding: .2em;*/
+    /*border: solid .1em #808080;*/
+    /*font-size: inherit;*/
+}
+
+.review-form input {
+    width: 20em;
+}
+
+.review-form .suggestion {
+    border-color: transparent;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.review-form .suggestion:before {
+    content: '\2190';
+    display: inline-block;
+    margin: 0 1em;
+    color: black;
+    opacity: .3;
+}
+
+.review-form .suggestion:hover:before {
+    opacity: 1;
+}
+
+.review-form .suggestion.different {
+    color: red;
+}
+
+.review-form .reset {
+    background: none;
+    border: none;
+    width: 2em;
+    display: inline-block;
+    margin-left: -2em;
+    color: #cc0;
+    font-size: 1.2em;
+}
+
+.suggestions {
+    background-color: #f2f2f2;
+    overflow: hidden;
+    padding: .5em;
+}
+
+.suggestions li {
+    float: left;
+    background-color: white;
+    margin: .5em;
+    padding: .5em;
+    cursor: pointer;
+}
+
+.suggestions li:hover {
+    box-shadow: 0 0 .5em rgba(0, 0, 0, .1);
+}
+
+.suggestions .inactive {
+    opacity: .5;
+}

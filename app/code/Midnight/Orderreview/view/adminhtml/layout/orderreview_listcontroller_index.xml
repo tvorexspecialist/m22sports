@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <head>
+        <css src="Midnight_Orderreview::css/orderreview.css" />
+    </head>
+    <referenceContainer name="content">
+        <block class="Midnight\Orderreview\Block\Adminhtml\Orderlist" name="orderreview_list" template="list.phtml">
+            <block class="Midnight\Orderreview\Block\Adminhtml\OrderList\Review" name="midnight_order_review" template="list/review.phtml"/>
+            <block class="Midnight\Orderreview\Block\Adminhtml\OrderList\Dismissed" name="midnight_order_dismiss" template="list/dismissed.phtml"/>
+            <block class="Midnight\Orderreview\Block\Adminhtml\OrderList\Confirmed" name="midnight_order_confirm" template="list/confirmed.phtml"/>
+        </block>
+    </referenceContainer>
+</layout>

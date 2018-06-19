@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <head>
+        <css src="Midnight_Orderreview::css/orderreview.css" />
+        <script src="Midnight_Orderreview::js/winline_orderreview.js"/>
+    </head>
+    <referenceContainer name="content">
+        <block class="Midnight\Orderreview\Block\Adminhtml\View" name="orderreview_view" template="view.phtml">
+            <block class="Midnight\Orderreview\Block\Adminhtml\View\Suggestions" name="suggestions" template="view/suggestions.phtml"/>
+            <block class="Midnight\Orderreview\Block\Adminhtml\View\Form" name="form" template="view/form.phtml"/>
+        </block>
+    </referenceContainer>
+</layout>

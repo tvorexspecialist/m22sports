@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Midnight_Orderreview::listcontroller" title="Winline" module="Midnight_Orderreview" sortOrder="10" resource="Midnight_Orderreview::listcontroller"/>
+        <add id="Midnight_Orderreview::execute" title="Winline Orders" module="Midnight_Orderreview" sortOrder="0" parent="Midnight_Orderreview::listcontroller"
+             action="orderreview/listcontroller" resource="Midnight_Orderreview::execute"/>
+    </menu>
+</config>

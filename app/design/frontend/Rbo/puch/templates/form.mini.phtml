@@ -1,0 +1,46 @@
+<?php
+/** @var $block \Magento\Framework\View\Element\Template */
+/** @var $helper \Magento\Search\Helper\Data */
+$helper = $this->helper('Magento\Search\Helper\Data');
+?>
+<div class="header-search-wrapper">
+    <div class="header-search-form-wrapper" id="header-search-form-wrapper">
+        <form class="magento__search"
+              id="search_mini_form"
+              action="<?= $helper->getResultUrl() ?>"
+              method="get">
+
+          <input id="search"
+                 data-mage-init='{
+                  "quickSearch": {
+                    "formSelector":"#search_mini_form",
+                    "url":"<?= $block->getUrl('search/ajax/suggest', ['_secure' => $block->getRequest()->isSecure()]); ?>",
+                    "destinationSelector":"#search_autocomplete"
+                  }
+                 }'
+                 type="text"
+                 name="<?= $helper->getQueryParamName() ?>"
+                 value="<?= $helper->getEscapedQueryText() ?>"
+                 placeholder="<?= __('Search entire store here...'); ?>"
+                 class="magento__search__input"
+                 maxlength="<?= $helper->getMaxQueryLength();?>"
+                 role="combobox"
+                 aria-haspopup="false"
+                 aria-autocomplete="both"
+                 autocomplete="off"/>
+            <div id="search_autocomplete" class="search-autocomplete"></div>
+            <?php echo $block->getChildHtml() ?>
+          <button class="magento__search__submit"
+                  type="submit"
+                  title="<?= $block->escapeHtml(__('Search')) ?>">
+            <?= __('Search'); ?>
+          </button>
+
+        </form>
+    </div>
+    <div class="header-search-show-wrapper">
+        <div class="header-search-icon" title="<?php echo __('Find')?>">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </div>
+    </div>
+</div>

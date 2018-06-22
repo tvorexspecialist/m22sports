@@ -1,0 +1,22 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+  .breadcrumbs {
+    //.lib-breadcrumbs();
+
+    .item { 
+      display: inline-block;
+
+      a {
+        font-size: 13px;
+        color: black;
+      }
+
+      &:not(:last-child):after {
+        content: "\279D";
+      }
+    }
+  }
+}

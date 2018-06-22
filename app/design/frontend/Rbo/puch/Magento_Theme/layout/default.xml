@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+  <head>
+    <css src="css/font-awesome.min.css" />
+    <link src="js/scripts.js"/>
+  </head>
+  <body>
+    <referenceContainer name="header-wrapper">
+      <container name="header.switcher.wrapper" htmlTag="div" htmlClass="header-switcher-wrapper" before="-">
+        <container name="header.panel.wrapper" htmlClass="panel wrapper" htmlTag="div" before="-">
+          <container name="header.panel" label="Page Header Panel" htmlTag="div" htmlClass="panel header">
+            <block class="Magento\Framework\View\Element\Template" name="skip_to_content" template="Magento_Theme::html/skip.phtml">
+              <arguments>
+                <argument name="target" xsi:type="string">contentarea</argument>
+                <argument name="label" translate="true" xsi:type="string">Skip to Content</argument>
+              </arguments>
+            </block>
+            <block class="Magento\Store\Block\Switcher" name="store_language" as="store_language" template="switch/languages.phtml"/>
+            <block class="Magento\Framework\View\Element\Html\Links" name="top.links">
+              <arguments>
+                <argument name="css_class" xsi:type="string">header links</argument>
+              </arguments>
+            </block>
+          </container>
+        </container>
+      </container>
+      <container name="header-wrapper__logo" htmlTag="div" htmlClass="header-wrapper__logo"/>
+      <container name="header-wrapper__content" htmlTag="div" htmlClass="header-wrapper__content">
+        <container name="header-wrapper__content__line-1" htmlTag="div" htmlClass="header-wrapper__content__line-1">
+          <block name="rbo__puch__header__homepage-url" class="Rbo\Puch\Block\HomepageUrl" template="homepage-url.phtml" />
+        </container>
+        <container name="header-wrapper__content__line-2" htmlTag="div" htmlClass="header-wrapper__content__line-2"/>
+      </container>
+    </referenceContainer>
+
+    <referenceContainer name="header.container">
+
+    </referenceContainer>
+
+    <referenceBlock name="logo">
+      <arguments>
+        <argument name="logo_file" xsi:type="string">images/logo.png</argument>
+        <argument name="logo_img_width" xsi:type="number">105</argument>
+        <argument name="logo_img_height" xsi:type="number">91</argument>
+      </arguments>
+    </referenceBlock>
+    <referenceContainer name="content">
+      <container htmlClass="content-main-wrapper" htmlTag="div">
+        <container name="content-main-container" htmlTag="div" htmlClass="content-main-container">
+
+        </container>
+        <container name="content-aside-container" htmlTag="div" htmlClass="content-aside-container">
+
+        </container>
+      </container>
+    </referenceContainer>
+    <referenceContainer name="footer">
+      <container name="rbo__puch__footer" htmlTag="div" htmlClass="rbo__puch__footer">
+        <block name="rbo__puch__footer__contact" class="Rbo\Puch\Block\CmsBlocks" template="contact.phtml" after="-" />
+        <block name="rbo__puch__footer__copyright" class="Rbo\Puch\Block\CmsBlocks" template="copyright.phtml" after="-" />
+        <block name="rbo__puch__footer__ssl-link" class="Rbo\Puch\Block\CmsBlocks" template="ssl-link.phtml" after="-" />
+      </container>
+    </referenceContainer>
+    
+    <move element="logo" destination="header-wrapper__logo" />
+    <move element="top.search" destination="header-wrapper__content__line-1" after="-" />
+    <move element="navigation.sections" destination="header-wrapper__content__line-2" />
+    <move element="minicart" destination="header-wrapper__content__line-2" after="-" />
+
+    <referenceBlock name="skip_to_content" remove="true" />
+    <referenceBlock name="store_switcher" remove="true" />
+    <referenceBlock name="copyright" remove="true" />
+    <referenceBlock name="footer_links" remove="true" />
+    <referenceBlock name="form.subscribe" remove="true" />
+    <!--<referenceBlock name="page.main.title" remove="true" />-->
+    <!--<referenceBlock name="category.products" remove="true" />-->
+
+  </body>
+</page>
+
+

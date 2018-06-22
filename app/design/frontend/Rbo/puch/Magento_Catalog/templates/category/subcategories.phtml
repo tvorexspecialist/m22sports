@@ -1,0 +1,23 @@
+<?php
+/** @var $block \Magento\Catalog\Block\Category\View */
+
+$category = $block->getCurrentCategory();
+$children = $this->getCategoryChildren($category->getEntityId());
+$_helper  = $this->helper('Magento\Catalog\Helper\Output');
+?>
+<?php if($category->getDisplayMode() == ('SUBCATEGORY_MODE') || $category->getDisplayMode() == ('SUBCATEGORY_AND_PRODUCTS_MODE')):?>
+<div class="rbo__puch__category">
+    <ul class="rbo__puch__category-list">
+        <?php foreach ($children as $child):
+            ?>
+            <li class="rbo__puch__category-item" style="background-image: url(<?php echo $child->getImageUrl();?>)">
+                <a href="<?php echo $child->getUrl();?>">
+                    <div class="catalog-subcategory-name">
+                        <span><?php echo $child->getName();?></span>
+                    </div>
+                </a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+<?php endif; ?>

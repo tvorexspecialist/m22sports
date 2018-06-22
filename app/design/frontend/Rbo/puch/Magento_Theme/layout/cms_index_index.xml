@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <container htmlClass="content-main-wrapper" htmlTag="div">
+                <container name="content-main-container" htmlTag="div" htmlClass="content-main-container">
+                    <container name="carousel-container-main" htmlTag="div" htmlClass="carousel-container-main">
+                        <block class="Magento\Cms\Block\Block" name="home-page-content-block">
+                            <arguments>
+                                <argument name="block_id" xsi:type="string">home-page-content-block</argument>
+                            </arguments>
+                        </block>
+                    </container>
+                </container>
+                <container name="content-aside-container" htmlTag="div" htmlClass="content-aside-container">
+                    <container name="content-categories-wrapper" htmlTag="div" htmlClass="categories-wrapper__content__line">
+                        <block name="rbo__puch__content__homecategories" class="Rbo\Puch\Block\Homecategories" template="homecategories.phtml" />
+                    </container>
+                </container>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

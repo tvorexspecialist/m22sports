@@ -1,0 +1,359 @@
+// /**
+//  * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Variables
+//  _____________________________________________
+
+@autocomplete__background-color: @color-white;
+@autocomplete__border: 1px solid @form-element-input__border-color;
+@autocomplete-item__border: 1px solid @color-gray90;
+@autocomplete-item__hover__color: @color-gray91;
+@autocomplete-item-amount__color: @color-gray60;
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+  .magento__search {
+    display: flex;
+    padding-left: 15px;
+
+    .magento__search__input {
+      display: block;
+      width: 260px;
+      padding: 0 10px;
+      border: 1px solid #666666;
+      border-radius: 5px 0 0 5px;
+      background-color: white;
+      font-size: 13px;
+      height: 28px;
+      line-height: 28px;
+    }
+
+    .magento__search__submit {
+      width: 60px;
+      height: 28px;
+      line-height: 28px;
+      color: white;
+      font-size: 13px;
+      border: 1px solid #666666;
+      border-radius: 0 5px 5px 0;
+      background-color: #0F7635;
+      box-shadow: none;
+      opacity: 1;
+      padding: 0;
+    }
+  }
+
+  .search-autocomplete {
+      display: none;
+      margin-top: -15px;
+      overflow: hidden;
+      position: absolute;
+      z-index: 3;
+      top:42px;
+      &:extend(.abs-add-box-sizing all);
+
+      ul {
+          .lib-list-reset-styles();
+
+          &:not(:empty) {
+              .lib-css(background, @autocomplete__background-color);
+              .lib-css(border, @autocomplete__border);
+              border-top: 0;
+          }
+
+          li {
+              .lib-css(border-top, @autocomplete-item__border);
+              cursor: pointer;
+              margin: 0;
+              padding: @indent__xs @indent__xl @indent__xs @indent__s;
+              position: relative;
+              text-align: left;
+              white-space: normal;
+
+              &:first-child {
+                  border-top: none;
+              }
+
+              &:hover,
+              &.selected {
+                  .lib-css(background, @autocomplete-item__hover__color);
+              }
+
+              .amount {
+                  .lib-css(color, @autocomplete-item-amount__color);
+                  position: absolute;
+                  right: 7px;
+                  top: @indent__xs;
+              }
+          }
+      }
+  }
+
+  .form.search.advanced {
+      &:extend(.abs-forms-general-desktop all);
+      
+      .fields.range {
+          .field {
+              &:first-child {
+                  position: relative;
+
+                  .control {
+                      padding-right: 25px;
+
+                      &:after {
+                          content: ' \2013 ';
+                          display: inline-block;
+                          position: absolute;
+                          right: 0;
+                          text-align: center;
+                          top: 6px;
+                          width: 25px;
+                      }
+                  }
+              }
+
+              &:last-child {
+                  position: relative;
+
+                  div.mage-error[generated] {
+                      left: 0;
+                      position: absolute;
+                      top: 32px;
+                  }
+              }
+
+              &.with-addon {
+                  .control {
+                      padding-right: 45px;
+                  }
+              }
+
+              &.date {
+                  &:extend(.abs-field-date all);
+              }
+          }
+      }
+
+      .group.price {
+          .addon {
+              .addafter {
+                  background: none;
+                  border: 0;
+                  padding-top: 6px;
+                  position: absolute;
+                  right: 0;
+                  top: 0;
+              }
+          }
+      }
+  }
+
+  .search-terms {
+      &:extend(.abs-reset-list all);
+      line-height: 2em;
+
+      > li {
+          display: inline-block;
+          margin-right: @indent__s;
+      }
+  }
+
+  .search.found {
+    margin-bottom: @indent__s;
+  }
+
+  .search-autocomplete {
+    margin-top: 0;
+  }
+
+  .header-search-icon{
+    display: none;
+  }
+
+  .minicart-wrapper{
+    max-height: 23px;
+  }
+  .price-container .price {
+    font-size: 1.8rem !important;
+  }
+  .widget-new-grid{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    overflow: hidden;
+
+    .product-item{
+      width: 23.5% !important;
+      margin-left: 0 !important;
+      float: left;
+      padding: 5px;
+      padding-left: 0 !important;
+      height: 312px;
+      margin-right: 1.5%;
+      margin-bottom: 1em;
+      background-color: white;
+      border: solid 0.1em #999;
+      position: relative;
+      border-radius: .2em;
+
+      .product-item-info{
+        height: 100%;
+        padding:10px;
+
+        .product-item-photo{
+          margin-left: 80px;
+        }
+
+        .product-item-name{
+          line-height: 1.5;
+          height: 3.5em;
+          margin-bottom: .75em;
+          overflow: hidden;
+          font-size: inherit;
+          font-weight: bold;
+        }
+
+        .price-final_price.price-box{
+          margin: 0;
+          float: left;
+          height: 100%;
+          background-color: #0F7635;
+          color: white;
+          padding: .35em .3em;
+          line-height: 1;
+          font-weight: bold;
+          box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.2);
+          border-radius: .2em;
+          overflow: hidden;
+          max-width: 4.5em;
+          margin-top: 2.5px;
+            .price-box{
+              margin: 0;
+            }
+          .price-label{
+            display: none;
+          }
+          .old-price{
+            display: none;
+          }
+        }
+      }
+    }
+
+      .actions-primary{
+        float:right;
+      }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+
+  .header-search-wrapper{
+
+    .header-search-icon{
+      display: block;
+      font-size: 34px;
+      line-height: 33px;
+      margin-left: 20px;
+      margin-right: 20px;
+      width: 35px;
+    }
+    .header-search-form-wrapper{
+      display: none;
+      position: absolute;
+      right: 60px;
+      top: 13px;
+    }
+
+  }
+
+  .product-item-photo{
+    margin-left: 0;
+  }
+  .minicart-wrapper__checkout{
+    display: none;
+  }
+
+
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xxs) {
+  .magento__search .magento__search__input{
+    width: 175px;
+  }
+  .product-item-photo{
+    margin-left: 10px !important;
+  }
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+  .product-item-info .price-box{
+    margin-left: 6px;
+  }
+    .product-item-name{
+      height: 6.5em !important;
+  }
+  .column.main .product-item {
+    padding-left: 0 !important;
+  }
+  .product-item-actions{
+    margin-left: -10px;
+  }
+}
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+  .categories-wrapper__content__line{
+    width: 455px;
+  }
+  .grid-product-description{
+    height: 58px;
+    overflow: hidden;
+  }
+  .product-item-photo{
+    margin-right: 10px;
+  }
+  .product-item{
+
+  }
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+  .product-item{
+    height: auto !important;
+  }
+  .grid-product-description{
+    display: none;
+  }
+  .product-item-photo{
+    margin-left: 0 !important;
+  }
+  .column.main .product-items {
+    margin-left: 0;
+
+  }
+  .product-item-info .price-box{
+    margin-left: 20px;
+  }
+  .widget-new-grid .actions-primary {
+    float: none !important;
+    display: block !important;
+    height: 40px;
+  }
+  .product-item-name{
+    text-align: center;
+  }
+}
+

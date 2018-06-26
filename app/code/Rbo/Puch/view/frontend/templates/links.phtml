@@ -1,0 +1,14 @@
+<?php
+  /**  @var \Rbo\Puch\Block\CmsBlocks $block */
+$baseUrl = $this->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_WEB);
+?>
+<div class="rbo__puch__footer__links col">
+    <h3><?= __('Allgemeine Information')?></h3>
+    <ul class="footer-page-links footer-links">
+        <li><a href="<?=$baseUrl?>impressum"><?= __('Impressum') ?></a></li>
+        <li><a href="<?=$baseUrl?>agb" ><?= __('Allgemeine Geschäftsbedingungen') ?></a></li>
+        <li><a href="<?=$baseUrl?>widerrufsbelehrung" ><?= __('Widerrufsbelehrung und Rücktrittsrecht') ?></a></li>
+        <li><a href="<?=$baseUrl?>dsgvo-datenschutzerklarung.html"><?= __('DSGVO Datenschutzerklärung') ?></a></li>
+        <li><a href="<?=$baseUrl?>privacy-policy-cookie-restriction-mode"><?= __('Information über Verwendung von Cookies') ?></a></li>
+    </ul>
+</div>

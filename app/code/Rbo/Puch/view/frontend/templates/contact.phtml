@@ -1,6 +1,28 @@
 <?php
-  /** @var \Magento\Framework\View\Element\Template $block */
+  /** @var \Rbo\Puch\Block\CmsBlocks $block */
+$logoName = 'rbo-logo-grey.png';
+$logoUrl = $this->getLogoUrl($logoName);
 ?>
-<address class="rbo__puch__footer__contact">
-  <?php echo  $block->getContent('footer-contacts'); ?>
+<address class="rbo__puch__footer__contact col">
+    <div id="hcard-Hermann-Stöckl" class="vcard">
+        <div class="footer-logo">
+            <img src="<?=$logoUrl?>" alt="RBO">
+        </div>
+        <div class="adr">
+
+            <span class="street-address"><?= __('RBO Ing. Stöckl GmbH')?></span><br />
+            <span class="street-address"><?= __('Gewerbepark II/4')?></span><br />
+            <abbr class="country-name" title="<?= __('Austria') ?>">A</abbr>-<span
+                    class="postal-code">2111</span> <span class="locality"><?= __('Tresdorf bei Korneuburg')?></span>
+        </div>
+        </br>
+        <dl>
+            <dt><?= __('Phone') ?>:</dt>
+            <dd class="tel">+43 (0) 2262 / 725 13</dd>
+            <dt><?= __('Fax') ?>:</dt>
+            <dd>+43 (0) 2262 / 725 13-4</dd>
+            <dt><?= __('Email') ?>:</dt>
+            <dd><a class="email" href="mailto:office@rbo.at">office@rbo.at</a></dd>
+        </dl>
+    </div>
 </address>

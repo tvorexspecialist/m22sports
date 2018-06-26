@@ -5,7 +5,7 @@ $category = $block->getCurrentCategory();
 $children = $this->getCategoryChildren($category->getEntityId());
 $_helper  = $this->helper('Magento\Catalog\Helper\Output');
 ?>
-<?php if($category->getDisplayMode() == ('SUBCATEGORY_MODE') || $category->getDisplayMode() == ('SUBCATEGORY_AND_PRODUCTS_MODE')):?>
+<?php /*if($category->getDisplayMode() == ('SUBCATEGORY_MODE') || $category->getDisplayMode() == ('SUBCATEGORY_AND_PRODUCTS_MODE')):*/ ?>
 <div class="rbo__puch__category">
     <ul class="rbo__puch__category-list">
         <?php foreach ($children as $child):
@@ -20,4 +20,5 @@ $_helper  = $this->helper('Magento\Catalog\Helper\Output');
         <?php endforeach; ?>
     </ul>
 </div>
-<?php endif; ?>
+<?php /*endif; */?>
+

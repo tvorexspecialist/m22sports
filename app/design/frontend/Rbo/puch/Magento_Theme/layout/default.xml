@@ -56,9 +56,9 @@
     </referenceContainer>
     <referenceContainer name="footer">
       <container name="rbo__puch__footer" htmlTag="div" htmlClass="rbo__puch__footer">
+        <block name="rbo__puch__footer__categories" class="Rbo\Puch\Block\CmsBlocks" template="categories.phtml" after="-" />
+        <block name="rbo__puch__footer__links" class="Rbo\Puch\Block\CmsBlocks" template="links.phtml" after="-" />
         <block name="rbo__puch__footer__contact" class="Rbo\Puch\Block\CmsBlocks" template="contact.phtml" after="-" />
-        <block name="rbo__puch__footer__copyright" class="Rbo\Puch\Block\CmsBlocks" template="copyright.phtml" after="-" />
-        <block name="rbo__puch__footer__ssl-link" class="Rbo\Puch\Block\CmsBlocks" template="ssl-link.phtml" after="-" />
       </container>
     </referenceContainer>
     

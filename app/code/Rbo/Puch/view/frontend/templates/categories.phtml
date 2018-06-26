@@ -1,0 +1,18 @@
+<?php
+  /** @var \Rbo\Puch\Block\CmsBlocks $block */
+?>
+<div class="rbo__puch__footer-links col">
+    <?php $_categories = $this->getCategories() ?>
+    <?php if (count($_categories) > 0): ?>
+        <h3><?=__('Categories')?></h3>
+        <ul class="footer-category-links footer-links">
+            <?php foreach($_categories as $_category): ?>
+                <li>
+                    <a href="<?= $this->getCategoryUrl($_category) ?>">
+                        <?= $_category->getName() ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
+</div>

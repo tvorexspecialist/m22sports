@@ -3,17 +3,17 @@
 ?>
 <?php
 $subcategories = $this->getChildCategories();
+$_helper    = $this->helper('Magento\Catalog\Helper\Output');
 ?>
-<?php $_helper    = $this->helper('Magento\Catalog\Helper\Output');?>
 <?php if(count($subcategories)):?>
     <!--<div class="subcategory-list clearfix wrapper">-->
         <div class="subcategory list items subcategory-items">
             <?php foreach ($subcategories as $_category):?>
-                <div class="category-item" style="background-image: url(<?php echo  $_category->getImageUrl();?>)">
+                <div class="category-item" style="background-image: url(<?=$this->getImageUrl($_category);?>)">
                     <div class="item-inner-wrapper">
-                        <a href="<?php echo $_category->getUrl();?>">
+                        <a href="<?= $_category->getUrl();?>">
                             <div class="aside-category-name">
-                                <span><?php echo $_category->getName();?></span>
+                                <span><?= $_category->getName();?></span>
                             </div>
                         </a>
                     </div>

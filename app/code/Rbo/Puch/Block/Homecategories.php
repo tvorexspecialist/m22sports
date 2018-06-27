@@ -7,7 +7,6 @@ class Homecategories extends \Magento\Framework\View\Element\Template {
     protected $_categoryFactory;
     protected $_registry;
 
-
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
         \Magento\Catalog\Helper\Category $categoryHelper,
@@ -22,8 +21,12 @@ class Homecategories extends \Magento\Framework\View\Element\Template {
 
 
     public function getImageUrl($category){
-        $category = $this->_categoryFactory->create()->load($category->getId());
-        return $category->getImageUrl();
+        $baseUrl = $this->_storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+        if($category->getThumbNail()){
+            $thumbNailUrl = $baseUrl. DIRECTORY_SEPARATOR . "catalog" . DIRECTORY_SEPARATOR . "category" . DIRECTORY_SEPARATOR .$category->getThumbNail();
+            return $thumbNailUrl;
+        }
+       return $category->getImageUrl();
     }
 
     public function getRootCategoryId(){
@@ -81,6 +84,10 @@ class Homecategories extends \Magento\Framework\View\Element\Template {
                 return false;
             }
         }
+    }
+
+    public function getThumbnailUrl(){
+
     }
 }
 ?>

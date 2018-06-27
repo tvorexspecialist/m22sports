@@ -111,7 +111,7 @@ body {
   font-size: 11px;
 
   .col {
-    width: 33.3% !important;
+    width: 33.3%;
     ul {
       list-style: disc;
       margin-left: 40px;
@@ -128,6 +128,9 @@ body {
         text-decoration: underline;
         color: #030303 !important;
       }
+    }
+    a.email{
+      color: inherit;
     }
   }
   h3 {
@@ -177,21 +180,29 @@ body {
     width: 34%;
     text-align: center;
   }
+}
+.cms-page-view .page-main {
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.05));
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.05));
+  background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.05));
+  background: -o-linear-gradient(top, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.05));
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.05));
+  background-color: rgba(0, 0, 0, 0);
+  background-color: #E1E1E1;
+  background-color: rgba(0, 0, 0, 0.03);
+  padding: 1.6em 2em;
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.2);
+  border: solid 1px #999;
+  margin-bottom: 2em;
+  border-radius: .2em;
 
-  .rbo__puch__footer__ssl-link {
-    width: 33%;
-    text-align: center;
-
-
-    a {
-      display: block;
-      height: 50px;
-      line-height: 50px;
-      color: black;
-      background-color: white;
-      border: 1px solid #aaa;
-      text-decoration: none;
-    }
+  .page-title-wrapper .page-title{
+    font-size: 2.5em;
+    font-family: 'Bitter';
+    font-weight: normal;
+    margin-bottom: .5em;
+    color: #633E03;
+    line-height: normal;
   }
 }
 
@@ -1042,6 +1053,12 @@ body {
     right:0 !important;
   }
 
+  .rbo__puch__footer {
+    .vcard{
+      width: 80%;
+      float: none;
+    }
+  }
 }
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
 
@@ -1104,6 +1121,25 @@ body {
       width: 100% !important;
     }
   }
+  .rbo__puch__footer {
+    display: block !important;
+    font-size: 14px !important;
+    .col{
+      width: 50% !important;
+    }
+
+    .rbo__puch__footer-links{
+      float: right;
+    }
+    .rbo__puch__footer__contact{
+      width: 100% !important;
+      margin: 15px 30px;
+      .vcard{
+        width: 100%;
+        float: none;
+      }
+    }
+  }
 }
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xxs) {
@@ -1112,6 +1148,12 @@ body {
   }
   .widget-new-grid .product-item .product-item-info .price-box{
     margin-left:  20%;
+  }
+  .rbo__puch__footer {
+    .col{
+      width: 100% !important;
+      margin-bottom: 15px;
+    }
   }
 }
 

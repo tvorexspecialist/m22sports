@@ -5,7 +5,7 @@ $_billing = $order->getBillingAddress();
 $_shipping = $order->getShippingAddress();
 $_customer = $this->getCustomer($order->getCustomerId());
 $accountNumber = '';
-if(!empty($_customer->getCustomAttribute('account_number'))){
+if(!empty($_customer) && !empty($_customer->getCustomAttribute('account_number'))){
     $accountNumber = $_customer->getCustomAttribute('account_number')->getValue();
 }
 

@@ -96,7 +96,7 @@ class Confirm extends \Magento\Backend\App\Action
                 }
                 $order->save();
 
-               $this->messageManager->addSuccessMessage(__('Order saved successfully: ').$order->getIncrementId());
+               $this->messageManager->addSuccessMessage(__('Order was saved successfully: ').$order->getIncrementId());
             }catch (LocalizedException $e){
                 $this->messageManager->addErrorMessage(__('Can not save data. Error: '). $e->getMessage());
            }

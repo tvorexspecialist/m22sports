@@ -128,10 +128,9 @@ class Form extends \Magento\Framework\View\Element\Template implements \Magento\
             } catch (LocalizedException $e) {
                 $this->messageManager->addErrorMessage(__('Winline customer with id %1 not found', $customerId));
             }
-        }else{
-            $this->messageManager->addErrorMessage(__('Order does not contain customer ID.'));
         }
-        $this->httpResponse->setRedirect($this->redirect->getRefererUrl())->sendResponse();
+        //$this->messageManager->addErrorMessage(__('Order does not contain customer ID.'));
+        return null;
     }
 
     /**

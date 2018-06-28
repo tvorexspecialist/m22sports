@@ -136,6 +136,7 @@ class ListHelper extends \Magento\Framework\App\Helper\AbstractHelper
             return $this->customerRepository->getById($customerId);
         }catch (LocalizedException $e){
         }
+        return null;
     }
 
     /**

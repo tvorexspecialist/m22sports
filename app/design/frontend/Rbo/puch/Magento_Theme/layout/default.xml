@@ -26,9 +26,7 @@
       </container>
       <container name="header-wrapper__logo" htmlTag="div" htmlClass="header-wrapper__logo"/>
       <container name="header-wrapper__content" htmlTag="div" htmlClass="header-wrapper__content">
-        <container name="header-wrapper__content__line-1" htmlTag="div" htmlClass="header-wrapper__content__line-1">
-          <block name="rbo__puch__header__homepage-url" class="Rbo\Puch\Block\HomepageUrl" template="homepage-url.phtml" />
-        </container>
+        <container name="header-wrapper__content__line-1" htmlTag="div" htmlClass="header-wrapper__content__line-1"/>
         <container name="header-wrapper__content__line-2" htmlTag="div" htmlClass="header-wrapper__content__line-2"/>
       </container>
     </referenceContainer>
@@ -61,17 +59,22 @@
         <block name="rbo__puch__footer__contact" class="Rbo\Puch\Block\CmsBlocks" template="contact.phtml" after="-" />
       </container>
     </referenceContainer>
-    
+    <referenceBlock name="top.links">
+      <referenceBlock name="wish-list-link" remove="true" />
+      <block name="rbo__puch__header__homepage-url" class="Rbo\Puch\Block\HomepageUrl" template="homepage-url.phtml" before="-"/>
+    </referenceBlock>
     <move element="logo" destination="header-wrapper__logo" />
     <move element="top.search" destination="header-wrapper__content__line-1" after="-" />
     <move element="navigation.sections" destination="header-wrapper__content__line-2" />
-    <move element="minicart" destination="header-wrapper__content__line-2" after="-" />
+    <move element="minicart" destination="top.links" after="-" />
+    <move element="top.links" destination="header-wrapper__content__line-2" after="-" />
 
     <referenceBlock name="skip_to_content" remove="true" />
     <referenceBlock name="store_switcher" remove="true" />
     <referenceBlock name="copyright" remove="true" />
     <referenceBlock name="footer_links" remove="true" />
     <referenceBlock name="form.subscribe" remove="true" />
+   <!-- <referenceBlock name="header.links" remove="true" />-->
     <!--<referenceBlock name="page.main.title" remove="true" />-->
     <!--<referenceBlock name="category.products" remove="true" />-->
 

@@ -10,7 +10,6 @@ body {
     display: block;
   }
 }
-
 .header-wrapper__content {
   width: 88%;
 
@@ -19,52 +18,114 @@ body {
     align-items: center;
     justify-content: flex-end;
     padding: 5px 0;
+    .header-search-wrapper {
+      margin-right: 150px;
+      margin-top: 5px;
+    }
   }
-
-  .header-wrapper__content__line-2 {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px 0;
-    margin-top: -6px;
-    .minicart-wrapper{
-      .mage-dropdown-dialog{
-        display: block;
+}
+  .header-wrapper__content .header-wrapper__content__line-2 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px 0;
+      position: absolute;
+      bottom: -5px;
+      width: 88%;
+      .nav-sections-item-content .header.links{
+        display: none;
+      }
+      .header.links {
+        display: inline-flex;
         position: absolute;
-        background-color: @color-white;
-        top: 93px;
-        z-index: 9999;
-        right:0;
+        list-style: none;
+        align-items: center;
+        bottom: 1em;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.1);
+        text-shadow: 0.1em 0.1em 0 black;
+        padding-left: 20px !important;
+        padding-top: 7px;
+        li {
+          padding-right: 20px;
+        }
+        a {
+          color: #fff;
+          font-size: 14px !important;
+          font-weight: normal !important;
+          text-decoration: underline;
+        }
+        a:hover {
+          text-decoration: none;
+        }
+        .my-account-top-link {
+          background: url("../images/design/konto.png") left center no-repeat;
+          background-position-x: left;
+          padding-left: 20px !important;
+          background-size: 14px;
+        }
+        .login-top-link a {
+          background: url("../images/design/login.png") left center no-repeat;
+          background-position-x: left;
+          padding-left: 20px !important;
+          background-size: 14px;
+        }
+        .action.showcart {
+          background: url("../images/design/warenkorb.png") left center no-repeat;
+          background-position-x: left;
+          padding-left: 20px !important;
+          background-size: 14px;
+        }
+        .minicart-wrapper__checkout {
+          background: url("../images/design/kassa.png") left center no-repeat;
+          background-position-x: left;
+          padding-left: 20px !important;
+          background-size: 14px;
+        }
+      }
+      .minicart-wrapper {
+        .mage-dropdown-dialog {
+          display: block;
+          position: absolute;
+          background-color: @color-white;
+          top: 93px;
+          z-index: 9999;
+          right: 0;
 
-        .block-content{
-          color: @color-black;
-          text-shadow: none;
-          .minicart-items-wrapper{
-            margin: 0 20px;
-            .minicart-price{
-              background-color: #0f7635;
-              color: #ffffff;
-              font-size: 1.2em;
-              padding: 0 .4em;
-              line-height: 1;
-              font-weight: bold;
-              box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.2);
-              border-radius: .2em;
-              overflow: hidden;
-              max-width: 4.5em;
-              cursor: pointer;
-              margin: 0;
-              padding-bottom: 0.1em;
+          .block-content {
+            color: @color-black;
+            text-shadow: none;
+            .minicart-items-wrapper {
+              margin: 0 20px;
+              .minicart-price {
+                background-color: #0f7635;
+                color: #ffffff;
+                font-size: 1.2em;
+                padding: 0 .4em;
+                line-height: 1;
+                font-weight: bold;
+                box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.2);
+                border-radius: .2em;
+                overflow: hidden;
+                max-width: 4.5em;
+                cursor: pointer;
+                margin: 0;
+                padding-bottom: 0.1em;
+              }
             }
           }
         }
       }
     }
+
+  .page-header .panel.header .header.links{
+    display: none;
   }
-}
+
 .page-header {
   .header.content{
-    padding-top: 15px;
+    padding-top: 25px;
+    height: 100%;
     .panel.header{
       text-shadow: none;
       .switcher-option{
@@ -582,7 +643,8 @@ body {
         height: 100%;
         width: 100%;
         text-shadow: 1px 1px 1px white;
-        font-size: 1.44em;
+        font-size: 1.4rem;
+        font-weight: normal;
 
         .action.showcart{
           color: #333;
@@ -595,6 +657,13 @@ body {
           line-height: 1.5;
           margin: 0;
           margin-bottom: .5em;
+        }
+
+        a{
+          font-size: 14px;
+          font-weight: normal;
+          width: auto;
+          color: #fff;
         }
       }
     }
@@ -968,6 +1037,41 @@ body {
   }
 }
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+  .header-wrapper__content {
+    width: auto;
+    height: 12em;
+    .header-wrapper__content__line-1 {
+      position: absolute !important;
+      bottom: 0 !important;
+      right: 0 !important;
+      .header-search-wrapper {
+        margin-right: 10px !important;
+        .header-search-form-wrapper{
+          right: 10px;
+          top: -20px;
+        }
+      }
+    }
+    .header-wrapper__content__line-2{
+      position: relative !important;
+      width: auto !important;
+      .header.links{
+        margin-bottom: 0;
+        display: block !important;
+        position: relative !important;
+      }
+    }
+    .nav-sections-item-content .header.links{
+      display: block !important;
+    }
+  }
+  .header-wrapper__content .header-wrapper__content__line-1 .header-search-wrapper{
+    margin-right: 10px;
+  }
+  .page-header .panel.header .header.links{
+    display: block;
+  }
   .rbo__puch__footer__ssl-link a {
       height: auto !important;
   }
@@ -1099,6 +1203,9 @@ body {
   }
 }
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
+  .header-search-wrapper .header-search-icon {
+    margin-right: 0 !important;
+  }
   .widget-new-grid .product-item {
     width: 48% !important;
   }

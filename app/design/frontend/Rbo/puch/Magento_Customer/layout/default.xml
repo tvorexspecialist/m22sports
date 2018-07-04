@@ -2,11 +2,21 @@
     <body>
         <referenceBlock name="top.links">
             <referenceBlock name="my-account-link" remove="true"/>
+
             <block class="Magento\Customer\Block\Account\Link" name="my-account-link-new">
                 <arguments>
                     <argument name="label" xsi:type="string" translate="true">My Account</argument>
                     <argument name="sortOrder" xsi:type="number">110</argument>
                     <argument name="class" xsi:type="string">my-account-top-link</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceBlock name="header.links">
+            <referenceBlock name="register-link" remove="true"/>
+            <block class="Magento\Customer\Block\Account\RegisterLink" name="register-link-new">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Create an Account</argument>
+                    <argument name="class" xsi:type="string">register-top-link</argument>
                 </arguments>
             </block>
         </referenceBlock>

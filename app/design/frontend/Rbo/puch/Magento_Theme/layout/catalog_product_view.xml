@@ -136,6 +136,55 @@
                </arguments>
            </block>
        </referenceContainer>
+        <referenceContainer name="sidebar.additional">
+            <container name="category-aside-container" htmlTag="div" htmlClass="content-aside-container" before="-">
+                <container htmlTag="div" htmlClass="aside-minicart-wrapper">
+                    <block class="Magento\Checkout\Block\Cart\Sidebar" name="minicart-sidebar.right" as="minicart-sidebar" template="cart/minicart-sidebar.phtml">
+                        <arguments>
+                            <argument name="jsLayout" xsi:type="array">
+                                <item name="types" xsi:type="array"/>
+                                <item name="components" xsi:type="array">
+                                    <item name="minicart_content" xsi:type="array">
+                                        <item name="component" xsi:type="string">Magento_Checkout/js/view/minicart</item>
+                                        <item name="config" xsi:type="array">
+                                            <item name="template" xsi:type="string">Magento_Checkout/minicart/content</item>
+                                        </item>
+                                        <item name="children" xsi:type="array">
+                                            <item name="subtotal.container" xsi:type="array">
+                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                <item name="config" xsi:type="array">
+                                                    <item name="displayArea" xsi:type="string">subtotalContainer</item>
+                                                </item>
+                                                <item name="children" xsi:type="array">
+                                                    <item name="subtotal" xsi:type="array">
+                                                        <item name="component" xsi:type="string">uiComponent</item>
+                                                        <item name="config" xsi:type="array">
+                                                            <item name="template" xsi:type="string">Magento_Checkout/minicart/subtotal</item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                            <item name="extra_info" xsi:type="array">
+                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                <item name="config" xsi:type="array">
+                                                    <item name="displayArea" xsi:type="string">extraInfo</item>
+                                                </item>
+                                            </item>
+                                            <item name="promotion" xsi:type="array">
+                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                <item name="config" xsi:type="array">
+                                                    <item name="displayArea" xsi:type="string">promotion</item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </argument>
+                        </arguments>
+                    </block>
+                </container>
+            </container>
+        </referenceContainer>
        <referenceContainer name="content.aside">
            <block class="Magento\Catalog\Block\Product\ProductList\Related" name="catalog.product.related" template="Magento_Catalog::product/list/items.phtml">
                <arguments>

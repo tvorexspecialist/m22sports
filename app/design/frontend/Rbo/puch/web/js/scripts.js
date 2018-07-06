@@ -14,13 +14,28 @@ require(['jquery', 'jquery/ui'], function($){
         $(window).scroll(function () {
             if($('.aside-minicart-wrapper').length > 0) {
                 if ($(this).scrollTop() >= orgElementPos.top) {
-                    $('.aside-minicart-wrapper').addClass('aside-minicart-wrapper-fixed')
+                    $('.aside-minicart-wrapper').addClass('aside-minicart-wrapper-fixed');
+                    if($('body').hasClass('catalog-product-view')){
+                        $('.content-aside-container').css('position', 'absolute');
+                    }
                 } else {
-                    $('.aside-minicart-wrapper').removeClass('aside-minicart-wrapper-fixed')
+                    $('.aside-minicart-wrapper').removeClass('aside-minicart-wrapper-fixed');
+                    if($('body').hasClass('catalog-product-view')){
+                        $('.content-aside-container').css('position', 'relative');
+                    }
                 }
+
             }
         });
     });
+
+    function changeMinicartStyle() {
+        if($('body').hasClass('catalog-product-view')){
+            $('.content-aside-container').css('position', 'absolute');
+        }else{
+            $('.content-aside-container').css('position', 'relative');
+        }
+    }
 });
 
 

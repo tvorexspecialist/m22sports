@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <attribute name="class" value="page-products"/>
+        <referenceContainer name="content">
+            <container htmlClass="content-main-wrapper" htmlTag="div">
+                <container htmlClass="content-main-container" htmlTag="div">
+                    <block class="Magento\CatalogSearch\Block\Result" name="search.result" template="Magento_CatalogSearch::result.phtml" cacheable="false">
+                        <block class="Magento\CatalogSearch\Block\SearchResult\ListProduct" name="search_result_list" template="Magento_Catalog::product/list.phtml" cacheable="false">
+                            <arguments>
+                                <!-- If argument's position depends on image size changeable in VDE:
+                                positions:list-secondary,grid-secondary,list-actions,grid-actions,list-primary,grid-primary
+                            -->
+                                <argument name="positioned" xsi:type="string">positions:list-secondary</argument>
+                            </arguments>
+                            <block class="Magento\Catalog\Block\Product\ProductList\Toolbar" name="product_list_toolbar" template="Magento_Catalog::product/list/toolbar.phtml" cacheable="false">
+                                <block class="Magento\Theme\Block\Html\Pager" name="product_list_toolbar_pager" cacheable="false"/>
+                            </block>
+                            <action method="setToolbarBlockName">
+                                <argument name="name" xsi:type="string">product_list_toolbar</argument>
+                            </action>
+                            <block class="Magento\Framework\View\Element\RendererList" name="category.product.type.details.renderers" as="details.renderers">
+                                <block class="Magento\Framework\View\Element\Template" name="category.product.type.details.renderers.default" as="default"/>
+                            </block>
+                            <block class="Magento\Catalog\Block\Product\ProductList\Item\Container" name="catalogsearch.product.addto" as="addto">
+                                <block class="Magento\Catalog\Block\Product\ProductList\Item\AddTo\Compare"
+                                       name="catalogsearch.product.addto.compare" as="compare"
+                                       template="Magento_Catalog::product/list/addto/compare.phtml"/>
+                            </block>
+                        </block>
+                        <action method="setListOrders"/>
+                        <action method="setListModes"/>
+                        <action method="setListCollection"/>
+                    </block>
+                </container>
+                <container name="category-aside-container" htmlTag="div" htmlClass="content-aside-container">
+                    <container htmlTag="div" htmlClass="aside-minicart-wrapper">
+                        <block class="Magento\Checkout\Block\Cart\Sidebar" name="minicart-sidebar.right" as="minicart-sidebar" template="cart/minicart-sidebar.phtml">
+                            <arguments>
+                                <argument name="jsLayout" xsi:type="array">
+                                    <item name="types" xsi:type="array"/>
+                                    <item name="components" xsi:type="array">
+                                        <item name="minicart_content" xsi:type="array">
+                                            <item name="component" xsi:type="string">Magento_Checkout/js/view/minicart</item>
+                                            <item name="config" xsi:type="array">
+                                                <item name="template" xsi:type="string">Magento_Checkout/minicart/content</item>
+                                            </item>
+                                            <item name="children" xsi:type="array">
+                                                <item name="subtotal.container" xsi:type="array">
+                                                    <item name="component" xsi:type="string">uiComponent</item>
+                                                    <item name="config" xsi:type="array">
+                                                        <item name="displayArea" xsi:type="string">subtotalContainer</item>
+                                                    </item>
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="subtotal" xsi:type="array">
+                                                            <item name="component" xsi:type="string">uiComponent</item>
+                                                            <item name="config" xsi:type="array">
+                                                                <item name="template" xsi:type="string">Magento_Checkout/minicart/subtotal</item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                                <item name="extra_info" xsi:type="array">
+                                                    <item name="component" xsi:type="string">uiComponent</item>
+                                                    <item name="config" xsi:type="array">
+                                                        <item name="displayArea" xsi:type="string">extraInfo</item>
+                                                    </item>
+                                                </item>
+                                                <item name="promotion" xsi:type="array">
+                                                    <item name="component" xsi:type="string">uiComponent</item>
+                                                    <item name="config" xsi:type="array">
+                                                        <item name="displayArea" xsi:type="string">promotion</item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </argument>
+                            </arguments>
+                        </block>
+                    </container>
+                </container>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

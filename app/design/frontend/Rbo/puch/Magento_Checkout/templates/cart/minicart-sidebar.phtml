@@ -76,7 +76,7 @@
         </div>
     <?php endif ?>
     <a class="minicart-wrapper__checkout" href="<?= $block->getCheckoutUrl(); ?>">
-        Checkout
+       <?= __('Checkout')?>
     </a>
     <script>
         window.checkout = <?php /* @escapeNotVerified */ echo \Zend_Json::encode($block->getConfig()); ?>;

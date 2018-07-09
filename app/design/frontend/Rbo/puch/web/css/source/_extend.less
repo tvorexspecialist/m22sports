@@ -698,6 +698,9 @@ body {
 
     .product-info-main{
       width: 100%;
+      .product-reviews-summary .reviews-actions{
+        display: none;
+      }
       .product-info-stock-sku{
         text-align: left;
         color: #333;
@@ -719,7 +722,7 @@ body {
         float: left;
       }
       .product.attribute.description{
-        width: 62%;
+        width: 61%;
         float: right;
         border-bottom: 1px dashed;
         margin-bottom: 20px;
@@ -767,6 +770,7 @@ body {
             cursor: pointer;
             font-family: sans-serif;
             color: #222;
+            font-size: 16px;
             &:focus{
               -webkit-box-shadow: inset 0 0 2px #fff;
               -moz-box-shadow: inset 0 0 2px #fff;
@@ -1133,9 +1137,11 @@ body {
     .content-aside-container{
 
     }
-      .column.main .product-info-main .product-add-form{
+      .column.main .product-info-main {
+        .product-add-form {
         clear: both !important;
-        width:100% !important;
+        width: 100% !important;
+      }
     }
   }
   .cms-index-index .columns .column.main .content-main-wrapper .content-aside-container{

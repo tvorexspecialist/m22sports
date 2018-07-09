@@ -75,6 +75,10 @@
 
                 > .secondary {
                     text-align: center;
+                    a{
+                        color: #1979c3 !important;
+                        text-decoration:none !important;
+                    }
                 }
 
                 > .primary {
@@ -86,6 +90,10 @@
                             display: block;
                             width: 100%;
                         }
+                    }
+                    a{
+                        color: #1979c3 !important;
+                        text-decoration:none !important;
                     }
                 }
 
@@ -248,7 +256,7 @@
             margin: 0 0 @indent__s;
 
             a {
-                .lib-css(color, @link__color);
+                .lib-css(color, @link__color) !important;
             }
         }
 

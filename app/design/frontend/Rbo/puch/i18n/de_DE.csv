@@ -1,4 +1,10 @@
 "All","Alle",module,Magento_AdminGws
+"Zur Homepage","RBO Home"
+"Already have an account? Click here to login","Hast du schon ein Konto? Klicken Sie hier, um sich einzuloggen"
+"Create account","Benutzerkonto anlegen"
+"Item in Cart","Artikel im Warenkorb"
+"Items in Cart","Artikel im Warenkorb"
+"Register for newsletter","Registrieren Sie sich für den Newsletter"
 "None","Keine",module,Magento_AdminGws
 "Allowed Scopes","Zulässige Bereiche",module,Magento_AdminGws
 "More permissions are needed to delete the ""%1"" item.","More permissions are needed to delete the ""%1"" item.",module,Magento_AdminGws

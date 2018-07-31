@@ -946,6 +946,9 @@ body {
     text-align: left;
     margin-top: -20px;
     margin-left: 25px;
+    p{
+      margin-left: 27px;
+    }
   }
   .checkout-container{
     background-color: #fff !important;
@@ -967,6 +970,8 @@ body {
     }
     .actions-toolbar{
       .action.primary{
+        width: 50%;
+        float: right;
         border: 1px solid #808080;
         border-color: #f90 !important;
         background-color: #fc6 !important;
@@ -1325,3 +1330,12 @@ body {
   }
 }
 
+.osc-place-order-block.checkout-addition-block{
+  width: 50%;
+  float: right;
+}
+@media screen and (max-width: 1400px) {
+  .customer-account-login .page-main, .checkout-onepage-success .page-main {
+    margin-left: 20px !important;
+  }
+}

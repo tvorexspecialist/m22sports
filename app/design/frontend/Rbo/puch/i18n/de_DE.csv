@@ -9851,7 +9851,7 @@
 "Once your package ships we will send you a tracking number.","Sobald Ihr Paket versendet wird, senden wir Ihnen eine Tracking-Nummer.",module,Magento_Sales
 "Your Order <span class=""no-link"">#%increment_id</span>","Your Order <span class=""no-link"">#%increment_id</span>",module,Magento_Sales
 "Placed on <span class=""no-link"">%created_at</span>","Placed on <span class=""no-link"">%created_at</span>",module,Magento_Sales
-"Once your package ships we will send an email with a link to track your order.","Once your package ships we will send an email with a link to track your order.",module,Magento_Sales
+"Once your package ships we will send an email with a link to track your order.","Sobald Ihr Paket versendet wird, senden wir Ihnen eine E-Mail mit einem Link, um Ihre Bestellung zu verfolgen.",module,Magento_Sales
 "Update to your %store_name order","Update to your %store_name order",module,Magento_Sales
 "Your %store_name order has shipped","Your %store_name order has shipped",module,Magento_Sales
 "Your shipping confirmation is below. Thank you again for your business.","Your shipping confirmation is below. Thank you again for your business.",module,Magento_Sales

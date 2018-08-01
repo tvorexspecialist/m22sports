@@ -13025,6 +13025,7 @@
 "View past orders","Frühere Bestellungen anzeigen",theme,frontend/Magento/luma
 "Footer","Fußzeile",theme,frontend/Magento/luma
 "<a href=%url_about_us>About Us</a>","<a href=%url_about_us>über Uns</a>",theme,frontend/Magento/luma
+"About Us","Über uns",module,Magento_Email
 "<a href=url_customer_service>Customer Service</a>","<a href=url_customer_service>Kunden-Service</a>",theme,frontend/Magento/luma
 "<a href=""tel:%store_phone"">%store_phone</a>","<a href=""tel:%store_phone""> %store_phone</a>",theme,frontend/Magento/luma
 "Hours of Operation:<br /><span class=""no-link"">%store_hours</span>.","Betriebsstunden: <br /><span class=""no-link"">%store_hours</span>.",theme,frontend/Magento/luma

@@ -17,6 +17,7 @@
 "More permissions are needed to save this setting.","More permissions are needed to save this setting.",module,Magento_AdminGws
 "Role Scopes","Alcance del rol",module,Magento_AdminGws
 "Custom","Personalizado",module,Magento_AdminGws
+"Short Information","Descripción rápida",module,Magento_Catalog
 "Read Details","Leer detalles",module,Magento_AdminNotification
 "Mark as Read","Marcar como leído",module,Magento_AdminNotification
 "Are you sure?","¿Seguro que quieres continuar?",module,Magento_AdminNotification

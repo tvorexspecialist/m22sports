@@ -36,6 +36,7 @@
 "${ $.visible } out of ${ $.total } visible","${ $.visible } sur ${ $.total } visible(s)"
 %1,%1
 "Zur Homepage","RBO Home"
+"Short Information","Vue générale rapide",module,Magento_Catalog
 "Impressum","Empreinte"
 "Allgemeine Information","Informations générales"
 "Allgemeine Geschäftsbedingungen","Termes et Conditions"

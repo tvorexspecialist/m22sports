@@ -401,7 +401,7 @@
 "Card Code Response","Karten Code Antwort",module,Magento_Authorizenet
 "CAVV Response","CAVV Rückmeldung",module,Magento_Authorizenet
 "Fraud Filters","Betrugsfilter",module,Magento_Authorizenet
-"Place Order","Jetzt kaufen",module,Magento_Authorizenet
+"Place Order","Zahlungspflichtig bestellen",module,Magento_Authorizenet
 "Sorry, but something went wrong. Please contact the seller.","Entschuldigung, es ist ein Fehler aufgetreten. Bitte kontaktieren Sie den Anbieter.",module,Magento_Authorizenet
 "Authorize.net Direct Post","Authorize.net Direktpost",module,Magento_Authorizenet
 "Enabled","Aktiviert",module,Magento_Authorizenet
@@ -1274,7 +1274,7 @@
 "Credit Card Information","Kreditkarten-Informationen",module,Magento_BraintreeTwo
 "What is this?","Was ist das?",module,Magento_BraintreeTwo
 "Save for later use.","Für die spätere Verwendung speichern.",module,Magento_BraintreeTwo
-"Place Order","Jetzt kaufen",module,Magento_BraintreeTwo
+"Place Order","Zahlungspflichtig bestellen",module,Magento_BraintreeTwo
 "This payment is not available","Diese Zahlung ist nicht verfügbar",module,Magento_BraintreeTwo
 "MM","MM",module,Magento_BraintreeTwo
 "YY","YY",module,Magento_BraintreeTwo
@@ -1481,6 +1481,7 @@
 "Use Config Settings","Konfigurationseinstellungen verwenden",module,Magento_Catalog
 "Use All Available Attributes","Alle verfügbaren Attribute verwenden",module,Magento_Catalog
 "ID","ID",module,Magento_Catalog
+"Short Information","Schnellübersicht",module,Magento_Catalog
 "Name","Name",module,Magento_Catalog
 "SKU","Artikelnummer",module,Magento_Catalog
 "Visibility","Sichtbarkeit",module,Magento_Catalog
@@ -2903,6 +2904,7 @@
 "You can create an account after checkout.","Nach dem Kauf können Sie ein Benutzerkonto erstellen.",module,Magento_Checkout
 "You already have an account with us. Sign in or continue as guest.","Sie haben bereits ein Konto bei uns. Melden Sie sich an oder kaufen Sie als Gast bei uns ein.",module,Magento_Checkout
 "Login","Anmelden",module,Magento_Checkout
+"You already have an account with us.","Sie haben bereits ein Konto bei uns."
 "See Details","Details anzeigen",module,Magento_Checkout
 "Options Details","Optionendetails",module,Magento_Checkout
 "Remove","Entfernen",module,Magento_Checkout
@@ -2910,7 +2912,7 @@
 "Payment Information","Zahlungsinformation",module,Magento_Checkout
 "No Payment method available.","Keine Zahlungsmethode zur Verfügung.",module,Magento_Checkout
 "You can track your order status by creating an account.","Durch Ihre Anmeldung können Sie Ihren Bestellstatus verfolgen.",module,Magento_Checkout
-"Place Order","Jetzt kaufen",module,Magento_Checkout
+"Place Order","Zahlungspflichtig bestellen",module,Magento_Checkout
 "Forgot an Item?","Artikel vergessen?",module,Magento_Checkout
 "Edit Your Cart","Warenkorb bearbeiten",module,Magento_Checkout
 "Ship Here","Hierhin verschicken",module,Magento_Checkout
@@ -4570,7 +4572,7 @@
 "Authorize and Capture","Authorize and Capture",module,Magento_Cybersource
 "Risk Factor Q","Risikofaktor Q",module,Magento_Cybersource
 "Risk Factor V","Risikofaktor V",module,Magento_Cybersource
-"Place Order","Jetzt kaufen",module,Magento_Cybersource
+"Place Order","Zahlungspflichtig bestellen",module,Magento_Cybersource
 "Cybersource","Cybersource",module,Magento_Cybersource
 "Enabled","Aktiviert",module,Magento_Cybersource
 "Payment Action","Zahlungsvorgang",module,Magento_Cybersource
@@ -6145,7 +6147,7 @@
 "Mode","Modus",module,Magento_Indexer
 "Status","Status",module,Magento_Indexer
 "Updated","Aktualisiert",module,Magento_Indexer
-"Your order number is: %1.","Your order number is: %1.",module,Magento_InstantPurchase
+"Your order number is: %1.","Ihre Bestellnummer lautet: %1.",module,Magento_InstantPurchase
 "Something went wrong while processing your order. Please try again later.","Something went wrong while processing your order. Please try again later.",module,Magento_InstantPurchase
 "A payment method isn't defined for instance purchase. Verify and try again.","A payment method isn't defined for instance purchase. Verify and try again.",module,Magento_InstantPurchase
 "Shipping address is not defined for instance purchase.","Shipping address is not defined for instance purchase.",module,Magento_InstantPurchase
@@ -6849,7 +6851,7 @@
 "Select Addresses","Select Addresses",module,Magento_Multishipping
 "Shipping Information","Versandinformation",module,Magento_Multishipping
 "Billing Information","Bestellübersicht",module,Magento_Multishipping
-"Place Order","Jetzt kaufen",module,Magento_Multishipping
+"Place Order","Zahlungspflichtig bestellen",module,Magento_Multishipping
 "Order Success","Order Success",module,Magento_Multishipping
 "Order Results","Order Results",module,Magento_Multishipping
 "Default Billing","Default Billing",module,Magento_Multishipping
@@ -7116,7 +7118,7 @@
 "Purchase Order Number: %1","Auftragsnummer: %1",module,Magento_OfflinePayments
 "Make Check payable to","Check ausstellen auf",module,Magento_OfflinePayments
 "Send Check to","Check senden an",module,Magento_OfflinePayments
-"Place Order","Jetzt kaufen",module,Magento_OfflinePayments
+"Place Order","Zahlungspflichtig bestellen",module,Magento_OfflinePayments
 "Check / Money Order","Scheck / Zahlungsanweisung",module,Magento_OfflinePayments
 "Enabled","Aktiviert",module,Magento_OfflinePayments
 "New Order Status","Neuer Bestellstatus",module,Magento_OfflinePayments
@@ -7259,7 +7261,7 @@
 "Card Verification Number Visual Reference","Kartenprüfnummer",module,Magento_Payment
 "What is this?","Was ist das?",module,Magento_Payment
 "Credit Card Information","Kreditkarten-Informationen",module,Magento_Payment
-"Place Order","Jetzt kaufen",module,Magento_Payment
+"Place Order","Zahlungspflichtig bestellen",module,Magento_Payment
 "Forgot an Item?","Artikel vergessen?",module,Magento_Payment
 "Edit Your Cart","Warenkorb bearbeiten",module,Magento_Payment
 "Please enter a valid credit card type number.","Bitte geben Sie eine gültige Kreditkartentypnummer ein.",module,Magento_Payment
@@ -7668,7 +7670,7 @@
 "Edit Payment Information","Edit Payment Information",module,Magento_Paypal
 "Items in Your Shopping Cart","Items in Your Shopping Cart",module,Magento_Paypal
 "Edit Shopping Cart","Edit Shopping Cart",module,Magento_Paypal
-"Place Order","Jetzt kaufen",module,Magento_Paypal
+"Place Order","Zahlungspflichtig bestellen",module,Magento_Paypal
 "Submitting order information...","Bestellung wird übermittelt …",module,Magento_Paypal
 "Item","Artikel",module,Magento_Paypal
 "Price","Preis",module,Magento_Paypal

@@ -2878,7 +2878,7 @@
 "Incl. Tax","Inkl. MwSt.",module,Magento_Checkout
 "Your order number is: %1.","Ihre Bestellnummer lautet: %1.",module,Magento_Checkout
 "Your order # is: <span>%1</span>.","Ihre Bestellung # ist: <span>%1</span>.",module,Magento_Checkout
-"We'll email you an order confirmation with details and tracking info.","Wir schicken Ihnen eine Bestellbestätigung mit Details und Tracking-Info.",module,Magento_Checkout
+"We'll email you an order confirmation with details and tracking info.","Sie erhalten eine Bestellbestätigung per Email. Sie erhalten Daten zur Sendungsverfolgung (Sendungsnummer) sobald Ihre Bestellung versendet wurde.",module,Magento_Checkout
 "Payment Transaction Failed Reminder","Erinnerung für fehlgeschlagenen Zahlungsvorgang",module,Magento_Checkout
 "Payment Transaction Failed","Zahlungsvorgang fehlgeschlagen",module,Magento_Checkout
 "Reason","Grund",module,Magento_Checkout

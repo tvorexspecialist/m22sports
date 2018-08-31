@@ -681,6 +681,7 @@ body {
     top: 10px;
     left: auto;
     width: 313px;
+    z-index: 999
   }
 }
 
@@ -1298,7 +1299,7 @@ body {
     display: block !important;
     font-size: 14px !important;
     .col{
-      width: 50%;
+      width: 50% !important;
     }
 
     .rbo__puch__footer-links{
@@ -1342,5 +1343,14 @@ body {
 @media screen and (max-width: 1400px) {
   .customer-account-login .page-main, .checkout-onepage-success .page-main {
     margin-left: 20px !important;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .page-header {
+    height: 200px !important;
+    .header-wrapper__content .header-wrapper__content__line-2 .header.links {
+      padding-bottom: 15px !important;
+    }
   }
 }

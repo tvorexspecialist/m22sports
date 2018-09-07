@@ -3,4 +3,5 @@
     <type name="Magento\Catalog\Model\Product\Type\AbstractType">
         <plugin name="check_products_is_orderable" type="Rbo\CustomScripts\Plugin\Model\Product\Type\AbstractType"/>
     </type>
+    <preference for="Magento\Wishlist\Controller\Index\Add" type="Rbo\CustomScripts\Rewrite\Controller\Index\Add" />
 </config>

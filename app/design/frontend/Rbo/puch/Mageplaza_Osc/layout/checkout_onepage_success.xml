@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Mageplaza_Osc::css/style.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <container htmlClass="content-main-wrapper" htmlTag="div">
+                <container htmlClass="content-main-container" htmlTag="div" name="content-main-container">
+                    <block class="Mageplaza\Osc\Block\Survey" name="osc.survey" template="Mageplaza_Osc::onepage/success/survey.phtml"/>
+                    <block class="Mageplaza\Osc\Block\StaticBlock" name="osc.static-block.success" template="static-block.phtml"/>
+                </container>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

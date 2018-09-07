@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <move element="page.main.title" destination="content-main-container" before="-"/>
+        <referenceContainer name="content">
+            <container htmlClass="content-main-wrapper" htmlTag="div">
+                <container htmlClass="content-main-container" htmlTag="div" name="content-main-container">
+                    <block class="Magento\Sales\Block\Order\Recent" name="customer_account_dashboard_top" template="Magento_Sales::order/recent.phtml"/>
+                </container>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

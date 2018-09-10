@@ -4,4 +4,5 @@
         <plugin name="check_products_is_orderable" type="Rbo\CustomScripts\Plugin\Model\Product\Type\AbstractType"/>
     </type>
     <preference for="Magento\Wishlist\Controller\Index\Add" type="Rbo\CustomScripts\Rewrite\Controller\Index\Add" />
+    <preference for="Magento\Catalog\Controller\Product\Compare\Add" type="Rbo\CustomScripts\Rewrite\Controller\Product\Compare\Add" />
 </config>

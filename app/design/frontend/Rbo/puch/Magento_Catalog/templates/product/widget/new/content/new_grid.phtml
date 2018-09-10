@@ -33,6 +33,7 @@ $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 $wishlistHelper = $objectManager->create('Magento\Wishlist\Helper\Data');
 
 $itemsCollection = $wishlistHelper->getWishlist()->getItemCollection();
+$compareFactory = $objectManager->get('Magento\Catalog\Model\Product\Compare\ItemFactory')->create();
 
 ?>
 <?php if ($exist):?>
@@ -107,6 +108,7 @@ $itemsCollection = $wishlistHelper->getWishlist()->getItemCollection();
                                         <?php
                                             $productId = $_item->getId();
                                             $isInWishlist = false;
+                                            $isInCompare = false;
                                             if($itemsCollection->getSize() > 0) {
                                                 $itemsIds = $itemsCollection->getColumnValues('product_id');
                                                 $isInWishlist = in_array($productId, $itemsIds) ? true : false;
@@ -124,7 +126,11 @@ $itemsCollection = $wishlistHelper->getWishlist()->getItemCollection();
                                                 <?php endif; ?>
                                                 <?php if ($block->getAddToCompareUrl() && $showCompare): ?>
                                                     <?php $compareHelper = $this->helper('Magento\Catalog\Helper\Product\Compare');?>
-                                                    <a href="#" class="action tocompare"
+                                                    <?php $compareItem = $compareFactory->loadByProduct($_item);?>
+                                                    <?php if ($compareFactory->getId()) :?>
+                                                        <?php $isInCompare = true;?>
+                                                    <?php endif;?>
+                                                    <a href="#" class="action tocompare <?=$isInCompare ? 'added' : '';?>"
                                                        data-post='<?php /* @escapeNotVerified */ echo $compareHelper->getPostDataParams($_item);?>'
                                                        title="<?php /* @escapeNotVerified */ echo __('Add to Compare') ?>">
                                                         <span><?php /* @escapeNotVerified */ echo __('Add to Compare') ?></span>

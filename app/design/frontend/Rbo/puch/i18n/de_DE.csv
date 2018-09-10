@@ -2072,7 +2072,7 @@
 "Add to Cart ","Zum Warenkorb hinzufügen",module,Magento_Catalog
 "In stock","Auf Lager",module,Magento_Catalog
 "Out of stock","Nicht lieferbar",module,Magento_Catalog
-"Add to Wish List","Zur Wunschliste hinzufügen",module,Magento_Catalog
+"Add to Wish List","Wunschliste",module,Magento_Catalog
 "You have no items to compare.","Sie haben keine Artikel zum vergleichen.",module,Magento_Catalog
 "Remove This Item","Diesen Artikel entfernen",module,Magento_Catalog
 "Compare","Vergleichen",module,Magento_Catalog
@@ -2081,7 +2081,7 @@
 "Next","Weiter",module,Magento_Catalog
 "We can't find products matching the selection.","Leider können wir keine passenden Produkte zu ihrer Auswahl finden.",module,Magento_Catalog
 "Learn More","Mehr erfahren",module,Magento_Catalog
-"Add to Compare","Zur Vergleichsliste hinzufügen",module,Magento_Catalog
+"Add to Compare","Vergleichsliste",module,Magento_Catalog
 "We found other products you might like!","Diese Artikel könnten Ihnen eventuell auch gefallen!",module,Magento_Catalog
 "More Choices:","Mehr Auswahl:",module,Magento_Catalog
 "Check items to add to the cart or","Check items to add to the cart or",module,Magento_Catalog
@@ -2286,7 +2286,7 @@
 "Details","Details",module,Magento_Catalog
 "Recently Compared","Kürzlich verglichen",module,Magento_Catalog
 "Add To Cart","Hinzufügen",module,Magento_Catalog
-"Add To Compare","Zur Vergleichsliste hinzufügen",module,Magento_Catalog
+"Add To Compare","Vergleichsliste",module,Magento_Catalog
 "Learn more","Mehr erfahren",module,Magento_Catalog
 "Recently Viewed","Kürzlich angesehen",module,Magento_Catalog
 "Edit Event","Ereignis bearbeiten",module,Magento_CatalogEvent
@@ -2764,8 +2764,8 @@
 "Add to Cart","Hinzufügen",module,Magento_CatalogWidget
 "In stock","Auf Lager",module,Magento_CatalogWidget
 "Out of stock","Nicht lieferbar",module,Magento_CatalogWidget
-"Add to Wish List","Zur Wunschliste hinzufügen",module,Magento_CatalogWidget
-"Add to Compare","Zur Vergleichsliste hinzufügen",module,Magento_CatalogWidget
+"Add to Wish List","Wunschliste",module,Magento_CatalogWidget
+"Add to Compare","Vergleichsliste",module,Magento_CatalogWidget
 "Catalog Products List","Catalog Products List",module,Magento_CatalogWidget
 "List of Products","Liste der Produkte",module,Magento_CatalogWidget
 "Title","Titel",module,Magento_CatalogWidget
@@ -6820,7 +6820,7 @@
 "All Websites","Alle Webseiten",module,Magento_MultipleWishlist
 "Product Info","Product Info",module,Magento_MultipleWishlist
 "Unit Price","Einzelpreis",module,Magento_MultipleWishlist
-"Add to Wish List","Zur Wunschliste hinzufügen",module,Magento_MultipleWishlist
+"Add to Wish List","Wunschliste",module,Magento_MultipleWishlist
 "Change Billing Address","Rechnungsanschrift ändern",module,Magento_Multishipping
 "Ship to Multiple Addresses","Ihre Bestellnummer lautet",module,Magento_Multishipping
 "Billing Information - %1","Zahlungsinformationen - %1",module,Magento_Multishipping
@@ -8418,8 +8418,8 @@
 "Add to Cart","Hinzufügen",module,Magento_Reports
 "In stock","Auf Lager",module,Magento_Reports
 "Out of stock","Nicht lieferbar",module,Magento_Reports
-"Add to Wish List","Zur Wunschliste hinzufügen",module,Magento_Reports
-"Add to Compare","Zur Vergleichsliste hinzufügen",module,Magento_Reports
+"Add to Wish List","Wunschliste",module,Magento_Reports
+"Add to Compare","Vergleichsliste",module,Magento_Reports
 "Recently Compared","Recently Compared",module,Magento_Reports
 "Learn More","Mehr erfahren",module,Magento_Reports
 "Marketing","Marketing",module,Magento_Reports
@@ -12881,7 +12881,7 @@
 "Add All to Cart","Alles in den Warenkorb",module,Magento_Wishlist
 "Update Wish List","Wunschliste aktualisieren",module,Magento_Wishlist
 "Move to Wishlist","In Wunschliste verschieben",module,Magento_Wishlist
-"Add to Wish List","Zur Wunschliste hinzufügen",module,Magento_Wishlist
+"Add to Wish List","Wunschliste",module,Magento_Wishlist
 "View Product","Produkt anzeigen",module,Magento_Wishlist
 "Qty","Menge",module,Magento_Wishlist
 "Add to Cart","Hinzufügen",module,Magento_Wishlist
@@ -12891,7 +12891,7 @@
 "Edit","Bearbeiten",module,Magento_Wishlist
 "Remove Item","Artikel entfernen",module,Magento_Wishlist
 "Remove item","Artikel entfernen",module,Magento_Wishlist
-"Add to Compare","Zur Vergleichsliste hinzufügen",module,Magento_Wishlist
+"Add to Compare","Vergleichsliste",module,Magento_Wishlist
 "This Wish List has no Items","Diese Wunschliste enthält keine Artikel",module,Magento_Wishlist
 "%1 has been added to your Wish List.","%1 wurde zu Ihrer Wunschliste hinzugefügt.",module,Magento_Wishlist
 "Click <a href=""%1"">here</a> to continue shopping.","Klicken Sie <a href=""%1"">hier</a> um weiter einzukaufen.",module,Magento_Wishlist
@@ -12937,7 +12937,7 @@
 "Configure","Konfigurieren",module,Magento_Wishlist
 "Delete","Löschen",module,Magento_Wishlist
 "Product Details and Comment","Produktdetails und Kommentar",module,Magento_Wishlist
-"Add To Wishlist","Zur Wunschliste hinzufügen",module,Magento_Wishlist
+"Add To Wishlist","Wunschliste",module,Magento_Wishlist
 "Credit card type","WorldPay",module,Magento_Worldpay
 "CVV result","CVV Ergebnis",module,Magento_Worldpay
 "Postcode AVS check","Postleitzahl AVS Verifizierung",module,Magento_Worldpay

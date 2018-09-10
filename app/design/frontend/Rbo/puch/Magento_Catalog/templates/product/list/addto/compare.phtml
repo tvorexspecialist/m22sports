@@ -1,0 +1,27 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+/** @var $block Magento\Catalog\Block\Product\ProductList\Item\AddTo\Compare */
+?>
+<?php
+    $isInCompare = false;
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $compareFactory = $objectManager->get('Magento\Catalog\Model\Product\Compare\ItemFactory')->create();
+    $compareItem = $compareFactory->loadByProduct($block->getProduct());
+    if ($compareFactory->getId()) :
+        $isInCompare = true;
+endif;
+?>
+
+<a href="#"
+   class="action tocompare <?=$isInCompare ? 'added' : '';?>"
+   title="<?= $block->escapeHtml(__('Add to Compare')) ?>"
+   aria-label="<?= $block->escapeHtml(__('Add to Compare')) ?>"
+   data-post='<?= /* @escapeNotVerified */ $block->getCompareHelper()->getPostDataParams($block->getProduct()) ?>'
+   role="button">
+    <span><?= /* @escapeNotVerified */ __('Add to Compare') ?></span>
+</a>

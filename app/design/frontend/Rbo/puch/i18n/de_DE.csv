@@ -64,6 +64,7 @@
 "System messages","Systemmeldungen",module,Magento_AdminNotification
 "Close","Schließen",module,Magento_AdminNotification
 "See All (","Alle anzeigen (",module,Magento_AdminNotification
+"See All","Alle anzeigen",module,MageWorx_SearchSuiteAutocomplete
 "unread)","ungelesen)",module,Magento_AdminNotification
 "Show Toolbar","Symbolleiste anzeigen",module,Magento_AdminNotification
 "Show List","Liste anzeigen",module,Magento_AdminNotification
@@ -13058,3 +13059,4 @@
 "Account Dashboard","Benutzerkontoübersicht",theme,frontend/Magento/luma
 "Address Book","Adressbuch",theme,frontend/Magento/luma
 "Account Information","Kontoinformation",theme,frontend/Magento/luma
+"No Result","Ihre Suche ergab keine Ergebnisse."

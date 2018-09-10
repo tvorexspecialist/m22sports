@@ -60,6 +60,7 @@
 "System messages","Messaggi di sistema",module,Magento_AdminNotification
 "Close","Chiudi",module,Magento_AdminNotification
 "See All (","Vedi tutti (",module,Magento_AdminNotification
+"See All","Vedi tutti"
 "unread)","non letti)",module,Magento_AdminNotification
 "Show Toolbar","Mostra Toolbar",module,Magento_AdminNotification
 "Show List","Mostra lista",module,Magento_AdminNotification
@@ -13049,3 +13050,4 @@ Ulteriori informazioni su come installare l'agent è disponibile <a target=""_bl
 "Account Dashboard","Dashboard Account",theme,frontend/Magento/luma
 "Address Book","Rubrica",theme,frontend/Magento/luma
 "Account Information","Informazioni Account",theme,frontend/Magento/luma
+"No Result","La tua ricerca non ha prodotto risultati."

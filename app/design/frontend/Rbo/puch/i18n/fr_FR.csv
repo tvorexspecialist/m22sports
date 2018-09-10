@@ -5730,6 +5730,7 @@ Secureline,Secureline
 Security,Sécurité
 "Security validation of XML document has been failed.","La validation de sécurité du document XML a échoué."
 "See All (","Voir tout ("
+"See All","Voir tout"
 "See All (%1 unread)","Voir Tout (%1 non lu(s))"
 "See Details","Voir les détails"
 "
@@ -8949,3 +8950,4 @@ yes,oui
 "{width}^{height} px","{width}^{height} px"
 "{{base_url}} is not recommended to use in a production environment to declare the Base Unsecure URL / Base Secure URL. It is highly recommended to change this value in your Magento <a href=""%1"">configuration</a>.","Il n’est pas recommandé d’utiliser la variable {{base_url}} en production pour spécifier les URLs de base (sécurisée et non-sécurisée). Il est fortement recommandé de modifier cette valeur dans la <a href=""%1"">configuration</a> de Magento."
 "{{base_url}} is not recommended to use in a production environment to declare the Base Unsecure URL / Base Secure URL. We highly recommend changing this value in your Magento <a href=""%1"">configuration</a>.","Il n’est pas recommandé d’utiliser la variable {{base_url}} en production pour spécifier les URLs de base (sécurisée et non-sécurisée). Il est fortement recommandé de modifier cette valeur dans la <a href=""%1"">configuration</a> de Magento."
+"No Result","Votre recherche ne renvoie aucun résultat."

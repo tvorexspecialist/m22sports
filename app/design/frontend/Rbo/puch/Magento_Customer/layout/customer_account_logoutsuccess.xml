@@ -19,5 +19,6 @@
                 </container>
             </container>
         </referenceContainer>
+        <move element="page.main.title" destination="content-main-container" before="-"/>
     </body>
 </page>

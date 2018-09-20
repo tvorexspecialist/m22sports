@@ -1,0 +1,34 @@
+.config-nav-block.rbofee-tab strong:before {
+    width: 16px;
+    height: 19px;
+    content: '';
+    display: inline-block;
+    margin-right: 12px;
+    vertical-align: bottom;
+}
+
+.admin__menu [data-ui-id^="menu-rbofee-"] .submenu-group-title span:before,
+.admin__menu [data-ui-id^="menu-magento-"] [data-ui-id^="menu-magento-"] [data-ui-id^="menu-rbofee-"] span:before {
+    width: 16px;
+    height: 19px;
+    content: '';
+    display: inline-block;
+    margin-right: 12px;
+    vertical-align: top;
+}
+
+#rbofee_base_extensions table td.value,
+#rbofee_base_information table td.value {
+    vertical-align: bottom;
+}
+
+.rbobase-grid-message {
+    padding-left: 58px;
+    min-height: 53px;
+}
+
+.admin__action-dropdown-menu .notifications-entry:not(.notifications-entry-last) {
+    padding-left: 37px;
+}
+
+

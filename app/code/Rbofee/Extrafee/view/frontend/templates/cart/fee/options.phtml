@@ -1,0 +1,22 @@
+<?php
+/**
+ * @author Rbofee Team
+ * @copyright Copyright (c) 2018 Rbofee 
+ * @package Rbofee_Extrafee
+ */
+?>
+<?php /** @var $block \Rbofee\Extrafee\Block\Cart\Fee\Options */ ?>
+
+<div id="block-rbofee-extrafee-options">
+
+    <div id="block-rbofee-extrafee-summary" data-bind="scope:'block-rbofee-extrafee-summary'" class="content">
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <script type="text/x-magento-init">
+            {
+                "#block-rbofee-extrafee-summary": {
+                    "Magento_Ui/js/core/app": <?php /* @escapeNotVerified */ echo $block->getJsLayout();?>
+                }
+            }
+        </script>
+    </div>
+</div>

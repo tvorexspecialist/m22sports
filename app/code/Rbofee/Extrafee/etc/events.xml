@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Rbofee Team
+ * @copyright Copyright (c) 2018 Rbofee
+ * @package Rbofee_Extrafee
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="payment_cart_collect_items_and_amounts">
+        <observer name="rbofee_extrafee_payment_cart_collect_items_and_amounts"
+                  instance="Rbofee\Extrafee\Observer\Payment\Model\Cart\CollectTotalsAndAmounts" />
+    </event>
+</config>

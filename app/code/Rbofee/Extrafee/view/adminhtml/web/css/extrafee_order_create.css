@@ -1,0 +1,20 @@
+.rbofee_extrafee {
+    margin-bottom: 30px;
+}
+.rbofee_extrafee .rbofee-extrafee-fees {
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+.rbofee_extrafee .rbofee-extrafee-title {
+    font-weight: 700;
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+.rbofee_extrafee .rbofee-extrafee-options {
+    margin: 0 0 16px;
+}
+.rbofee_extrafee .action-secondary {
+    float:none;
+    margin: 0;
+    width: 170px;
+}

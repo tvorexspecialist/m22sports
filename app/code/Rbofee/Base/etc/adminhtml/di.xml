@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Rbofee Team
+ * @copyright Copyright (c) 2018 Rbofee
+ * @package Rbofee_Base
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\AdminNotification\Block\Grid\Renderer\Actions">
+        <plugin name="Rbofee_Base::show-unsubscribe-link"
+                type="Rbofee\Base\Plugin\AdminNotification\Block\Grid\Renderer\Actions"/>
+
+    </type>
+
+    <type name="Magento\AdminNotification\Block\Grid\Renderer\Notice">
+        <plugin name="Rbofee_Base::add-rbofee-class"
+                type="Rbofee\Base\Plugin\AdminNotification\Block\Grid\Renderer\Notice"/>
+    </type>
+
+    <type name="Magento\AdminNotification\Block\ToolbarEntry">
+        <plugin name="Rbofee_Base::add-rbofee-class-logo"
+                type="Rbofee\Base\Plugin\AdminNotification\Block\ToolbarEntry"/>
+    </type>
+</config>

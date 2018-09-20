@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Rbofee Team
+ * @copyright Copyright (c) 2018 Rbofee
+ * @package Rbofee_Extrafee
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
+    <extension_attributes for="Magento\Sales\Api\Data\OrderInterface">
+        <attribute code="rboextrafee_fee_id" type="string"/>
+        <attribute code="rboextrafee_fee_amount" type="float"/>
+        <attribute code="rboextrafee_base_fee_amount" type="float"/>
+        <attribute code="rboextrafee_tax_amount" type="float"/>
+        <attribute code="rboextrafee_base_tax_amount" type="float"/>
+    </extension_attributes>
+</config>

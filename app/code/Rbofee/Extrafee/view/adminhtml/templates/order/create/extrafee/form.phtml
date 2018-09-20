@@ -1,0 +1,71 @@
+<?php
+/**
+ * @author Rbofee Team
+ * @copyright Copyright (c) 2018 Rbofee 
+ * @package Rbofee_Extrafee
+ */
+?>
+<?php /** @var $block \Rbofee\Extrafee\Block\Adminhtml\Order\Create\Fee\Form */ ?>
+
+<?php $fees = $block->getExtraFees(); ?>
+<?php if ($fees) : ?>
+    <div class="rbofee_extrafee">
+        <?php foreach ($fees as $fee): ?>
+            <dl class="rbofee-extrafee-fees" fee-id="<?php echo $fee['id']?>">
+                <dt class="rbofee-extrafee-title">
+                    <span><?php echo $fee['name'] ?></span>
+                </dt>
+                <dd class="rbofee-extrafee-options item-options">
+                    <?php if ($fee['description']): ?>
+                        <div class="rbofee-extrafee-description"><?php echo $fee['description'] ?></div>
+                    <?php endif; ?>
+                    <?php switch ($fee['frontend_type']) :
+                        case 'checkbox': ?>
+                            <?php foreach ($fee['base_options'] as $option) : ?>
+                                <div class="rbofee-extrafee-option field choice item">
+                                    <input type="checkbox" class="admin__control-checkbox" id="rbofee-extrafee-option-<?php echo $option['index']?>"
+                                        <?php if (in_array($option['index'], $fee['current_value'])) echo 'checked' ?>
+                                           value="<?php echo $option['index'] ?>"
+                                           name="<?php echo $fee['name'] . '.extrafee.' ?>"
+                                    >
+                                    <label class="admin__field-label"" for="rbofee-extrafee-option-<?php echo $option['index']?>">
+                                        <?php echo $option['label'] . ' ' . $block->getFormattedPrice($option['price']) ?>
+                                    </label>
+                                </div>
+                            <?php endforeach; ?>
+                            <?php break; ?>
+                        <?php case 'radio': ?>
+                            <?php foreach ($fee['base_options'] as $option) : ?>
+                                <div class="rbofee-extrafee-option field choice item">
+                                    <input type="radio" class="admin__control-radio" id="rbofee-extrafee-option-<?php echo $option['index']?>"
+                                        <?php if ($fee['current_value'] == $option['index']) echo 'checked' ?>
+                                           value="<?php echo $option['index'] ?>"
+                                           name="<?php echo $fee['name'] . '.extrafee.' ?>"
+                                    >
+                                    <label class="admin__field-label" for="rbofee-extrafee-option-<?php echo $option['index']?>">
+                                        <?php echo $option['label'] . ' ' . $block->getFormattedPrice($option['price']) ?>
+                                    </label>
+                                </div>
+                            <?php endforeach; ?>
+                            <?php break; ?>
+                        <?php case 'dropdown': ?>
+                            <div class="rbofee-extrafee-option field choice item">
+                                <select class="sidebar-selector admin__control-select">
+                                    <option value=""><?php echo __('Choose Option') ?></option>
+                                    <?php foreach ($fee['base_options'] as $option) : ?>
+                                        <option value="<?php echo $option['index']; ?>" <?php if ($fee['current_value'] == $option['index']) echo 'selected' ?>>
+                                            <?php echo $option['label'] . ' ' . $block->getFormattedPrice($option['price']) ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <?php break; ?>
+                        <?php endswitch; ?>
+                </dd>
+            </dl>
+        <?php endforeach; ?>
+        <?php echo $block->getButtonHtml(__('Apply Fees'), 'amExtraFee.updateExtraFee(); return false;', 'action-default scalable action-secondary') ?>
+    </div>
+<?php else: ?>
+    <h4><?php echo __('No Extra Fees available.')?></h4>
+<?php endif; ?>

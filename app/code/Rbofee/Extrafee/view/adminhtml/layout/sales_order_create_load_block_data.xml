@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Rbofee Team
+ * @copyright Copyright (c) 2018 Rbofee
+ * @package Rbofee_Extrafee
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="items_grid">
+            <block class="Rbofee\Extrafee\Block\Adminhtml\Order\Create\Fee" before="-" template="Magento_Sales::order/create/abstract.phtml" name="order_create_rbofee_extrafee">
+                <block class="Rbofee\Extrafee\Block\Adminhtml\Order\Create\Fee\Form" template="order/create/extrafee/form.phtml" name="order_create_rbofee_extrafee_form" as="form"/>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

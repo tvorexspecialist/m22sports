@@ -1,0 +1,14 @@
+<div class="rbofee-extrafee-option field choice item" data-bind="foreach: getOptions()">
+    <input type="radio" class="radio" data-bind="
+        checked: $parent.currentValue,
+        attr: {
+            value: $data.index,
+            id: $parent.uid + '_' + $data.index,
+            name: $parent.name + '.extrafee'
+        }
+        ">
+    <label class="label" data-bind="attr: {for: $parent.uid + '_' + $data.index}">
+        <!-- ko text: $data.label --><!-- /ko -->
+        <!-- ko text: $parent.getFormattedPrice($data.price) --><!-- /ko -->
+    </label>
+</div>

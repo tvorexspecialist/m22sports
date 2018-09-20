@@ -1,0 +1,28 @@
+<?php
+/**
+ * @author Rbofee Team
+ * @copyright Copyright (c) 2018 Rbofee 
+ * @package Rbofee_Extrafee
+ */
+?>
+<script>
+    require([
+        'Rbofee_Extrafee/js/order/create/extrafee',
+        "prototype",
+        "Magento_Sales/order/create/form",
+        "Magento_Catalog/catalog/product/composite/configure",
+        "domReady!"
+    ], function (amExtraFee) {
+        window.amExtraFee = amExtraFee.initFeeOrderCreate();
+
+        order.sidebarHide();
+        if (window.productConfigure) {
+            productConfigure.addListType('product_to_add', {
+                urlFetch: '<?= /* @escapeNotVerified */ $block->getUrl('sales/order_create/configureProductToAdd') ?>'
+            });
+            productConfigure.addListType('quote_items', {
+                urlFetch: '<?= /* @escapeNotVerified */ $block->getUrl('sales/order_create/configureQuoteItems') ?>'
+            });
+        }
+    });
+</script>

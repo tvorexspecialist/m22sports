@@ -1,0 +1,11 @@
+<dl class="rbofee-extrafee-fees" visible="visible">
+    <dt class="rbofee-extrafee-title">
+        <span data-bind="text: label"></span>
+    </dt>
+    <dd class="rbofee-extrafee-options item-options">
+        <!-- ko if: description -->
+        <div class="rbofee-extrafee-description" data-bind="text: description"></div>
+        <!-- /ko -->
+        <render args="elementTmpl"/>
+    </dd>
+</dl>

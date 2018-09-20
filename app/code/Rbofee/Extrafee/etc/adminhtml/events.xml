@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Rbofee Team
+ * @copyright Copyright (c) 2018 Rbofee
+ * @package Rbofee_Extrafee
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="adminhtml_sales_order_create_process_data">
+        <observer name="Rbofee_Extrafee::order_create" instance="Rbofee\Extrafee\Observer\Admin\Order\Create" />
+    </event>
+</config>

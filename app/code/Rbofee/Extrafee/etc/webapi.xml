@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Rbofee Team
+ * @copyright Copyright (c) 2018 Rbofee
+ * @package Rbofee_Extrafee
+ */
+-->
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+
+    <!-- Managing totals information -->
+    <route url="/V1/rbofee_extrafee/carts/:cartId/totals-information" method="POST">
+        <service class="Rbofee\Extrafee\Api\TotalsInformationManagementInterface" method="calculate"/>
+        <resources>
+            <resource ref="Magento_Cart::manage" />
+        </resources>
+    </route>
+
+    <!-- Managing guest totals information -->
+    <route url="/V1/rbofee_extrafee/guest-carts/:cartId/totals-information" method="POST">
+        <service class="Rbofee\Extrafee\Api\GuestTotalsInformationManagementInterface" method="calculate"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+
+    <!-- Managing My totals information -->
+    <route url="/V1/rbofee_extrafee/carts/mine/totals-information" method="POST">
+        <service class="Rbofee\Extrafee\Api\TotalsInformationManagementInterface" method="calculate"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+
+    <!-- Managing fees information -->
+    <route url="/V1/rbofee_extrafee/carts/:cartId/fees-information" method="POST">
+        <service class="Rbofee\Extrafee\Api\FeesInformationManagementInterface" method="collect"/>
+        <resources>
+            <resource ref="Magento_Cart::manage" />
+        </resources>
+    </route>
+
+    <!-- Managing guest fees information -->
+    <route url="/V1/rbofee_extrafee/guest-carts/:cartId/fees-information" method="POST">
+        <service class="Rbofee\Extrafee\Api\GuestFeesInformationManagementInterface" method="collect"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+
+    <!-- Managing My totals information -->
+    <route url="/V1/rbofee_extrafee/carts/mine/fees-information" method="POST">
+        <service class="Rbofee\Extrafee\Api\FeesInformationManagementInterface" method="collect"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+
+    <route url="/V1/rbofee_extrafee/fee" method="POST">
+        <service class="Rbofee\Extrafee\Api\FeeRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Rbofee_Extrafee::manage" />
+        </resources>
+    </route>
+    <route url="/V1/rbofee_extrafee/fee/:feeId" method="PUT">
+        <service class="Rbofee\Extrafee\Api\FeeRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Rbofee_Extrafee::manage" />
+        </resources>
+    </route>
+    <route url="/V1/rbofee_extrafee/fee/:feeId" method="DELETE">
+        <service class="Rbofee\Extrafee\Api\FeeRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="Rbofee_Extrafee::manage" />
+        </resources>
+    </route>
+    <route url="/V1/rbofee_extrafee/fee" method="GET">
+        <service class="Rbofee\Extrafee\Api\FeeRepositoryInterface" method="getById"/>
+        <resources>
+            <resource ref="Rbofee_Extrafee::manage" />
+        </resources>
+    </route>
+    <route url="/V1/rbofee_extrafee/fee/all" method="GET">
+        <service class="Rbofee\Extrafee\Api\FeeRepositoryInterface" method="getListItems"/>
+        <resources>
+            <resource ref="Rbofee_Extrafee::manage" />
+        </resources>
+    </route>
+</routes>

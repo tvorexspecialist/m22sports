@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Rbofee Team
+ * @copyright Copyright (c) 2018 Rbofee
+ * @package Rbofee_Extrafee
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Rbofee\Extrafee\Api\FeeRepositoryInterface" type="Rbofee\Extrafee\Model\FeeRepository" />
+    <preference for="Rbofee\Extrafee\Api\Data\FeeSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults" />
+
+
+    <preference for="Rbofee\Extrafee\Api\Data\FeeInterface"
+                type="Rbofee\Extrafee\Model\Fee" />
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="rbofee_extrafee_listing_data_source" xsi:type="string">Rbofee\Extrafee\Model\ResourceModel\Fee\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\Model\Entity\RepositoryFactory">
+        <arguments>
+            <argument name="entities" xsi:type="array">
+                <item name="Rbofee\Extrafee\Api\Data\FeeInterface" xsi:type="string">Rbofee\Extrafee\Api\FeeRepositoryInterface</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\EntityManager\MetadataPool">
+        <arguments>
+            <argument name="metadata" xsi:type="array">
+                <item name="Rbofee\Extrafee\Api\Data\FeeInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">rbofee_extrafee</item>
+                    <item name="identifierField" xsi:type="string">entity_id</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Sales\Model\OrderRepository">
+        <plugin sortOrder="1" name="Rbofee_Extrafee::OrderRepository" type="\Rbofee\Extrafee\Plugin\Order\OrderRepository"/>
+    </type>
+
+    <preference for="Rbofee\Extrafee\Api\Data\TotalsInformationInterface"
+                type="Rbofee\Extrafee\Model\TotalsInformation" />
+
+    <preference for="Rbofee\Extrafee\Api\GuestTotalsInformationManagementInterface"
+                type="Rbofee\Extrafee\Model\GuestTotalsInformationManagement" />
+
+    <preference for="Rbofee\Extrafee\Api\TotalsInformationManagementInterface"
+                type="Rbofee\Extrafee\Model\TotalsInformationManagement" />
+
+    <preference for="Rbofee\Extrafee\Api\FeesInformationManagementInterface"
+                type="Rbofee\Extrafee\Model\FeesInformationManagement" />
+
+    <preference for="Rbofee\Extrafee\Api\GuestFeesInformationManagementInterface"
+                type="Rbofee\Extrafee\Model\GuestFeesInformationManagement" />
+
+    <preference for="Rbofee\Extrafee\Api\Data\FeesManagerInterface"
+                type="Rbofee\Extrafee\Model\Data\FeesManager" />
+
+    <type name="Rbofee\Extrafee\Model\ResourceModel\Fee\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">rbofee_extrafee</argument>
+            <argument name="eventPrefix" xsi:type="string">rbofee_extrafee_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">rbofee_extrafee_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Rbofee\Extrafee\Model\ResourceModel\Fee</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\SalesRule\Model\Rule\Condition\Product\Subselect">
+        <plugin name="Rbofee_Extrafee::Subselect" type="Rbofee\Extrafee\Plugin\Subselect"/>
+    </type>
+    <type name="\Magento\SalesRule\Setup\UpgradeData">
+        <plugin name="Rbofee_Extrafee::SetupUpgradeData" type="Rbofee\Extrafee\Plugin\Setup\UpgradeData" />
+    </type>
+    <type name="Magento\Framework\Reflection\TypeCaster">
+        <plugin name="Rbofee_Extrafee::Version_Compatability" type="Rbofee\Extrafee\Plugin\Reflection\TypeCaster" />
+    </type>
+</config>

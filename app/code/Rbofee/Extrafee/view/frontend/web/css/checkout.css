@@ -1,0 +1,13 @@
+.rbofee-extrafee-opc-block-fees .title{
+    font-weight: bold;
+}
+
+.rbofee-extrafee-opc-block-fees .field .radio{
+    float: left;
+}
+
+.rbofee-extrafee-opc-block-fees .field .radio + .label{
+    display: block;
+    margin: 0;
+    overflow: hidden;
+}

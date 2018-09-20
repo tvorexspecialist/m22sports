@@ -60,12 +60,15 @@ class Fee extends \Magento\Framework\View\Element\Template
 
         $feeAmount = 0;
         $baseFeeAmount = 0;
+        $taxAmount = 0;
+        $baseTaxAmount = 0;
         $labels = [];
 
         foreach($feesQuoteCollection as $feeOption) {
             $feeAmount += $feeOption->getFeeAmount();
             $baseFeeAmount += $feeOption->getBaseFeeAmount();
-
+            $taxAmount += $feeOption->getTaxAmount();
+            $baseTaxAmount += $feeOption->getBaseTaxAmount();
             $labels[] = $feeOption->getLabel();
         }
 
@@ -74,9 +77,9 @@ class Fee extends \Magento\Framework\View\Element\Template
                 [
                     'code' => 'rbofee_extrafee',
                     'strong' => false,
-                    'value' => $feeAmount,
-                    'base_value' => $baseFeeAmount,
-                    'label' => __('Extra Fee: %1', implode(', ', $labels)),
+                    'value' => $feeAmount+$taxAmount,
+                    'base_value' => $baseFeeAmount+$taxAmount,
+                    'label' => __('%1', implode(', ', $labels)),
                 ]
             );
 

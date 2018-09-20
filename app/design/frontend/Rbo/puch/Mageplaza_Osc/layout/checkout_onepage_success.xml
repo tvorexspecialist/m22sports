@@ -4,6 +4,9 @@
         <css src="Mageplaza_Osc::css/style.css"/>
     </head>
     <body>
+        <move element="page.main.title" destination="content-main-container" before="-"/>
+        <move element="checkout.success" destination="content-main-container" after="page.main.title"/>
+        <move element="checkout.registration" destination="content-main-container" after="checkout.success"/>
         <referenceContainer name="content">
             <container htmlClass="content-main-wrapper" htmlTag="div">
                 <container htmlClass="content-main-container" htmlTag="div" name="content-main-container">

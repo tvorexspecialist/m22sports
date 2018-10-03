@@ -30,6 +30,10 @@ class Index extends \Magento\Backend\App\Action
 
     public function execute()
     {
+        if(!empty($_GET['opcache_clean'])){
+            opcache_reset();
+            opcache_reset();
+        }
         $resultPage = $this->resultPageFactory->create();
         $resultPage->setActiveMenu('Midnight_Orderreview::execute');
         $resultPage->getConfig()->getTitle()->prepend(__('Winline Orders'));

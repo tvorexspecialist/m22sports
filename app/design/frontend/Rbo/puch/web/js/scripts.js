@@ -29,8 +29,10 @@ require(['jquery', 'jquery/ui'], function($){
         });
         var element = $('.checkout-cart-index .cart-container');
         if(element.length){
-            var topButton = element.find('button.action.primary.checkout').clone();
-            element.prepend(topButton);
+			var topButton = element.find('button.action.primary.checkout').clone();
+			var wrapper = '<div id="top-button-wrapper" class="top-button-wrapper"></div>';
+			element.prepend(wrapper);
+			$('#top-button-wrapper').append(topButton);
         }
     });
 

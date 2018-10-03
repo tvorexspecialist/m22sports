@@ -27,6 +27,11 @@ require(['jquery', 'jquery/ui'], function($){
 
             }
         });
+        var element = $('.checkout-cart-index .cart-container');
+        if(element.length){
+            var topButton = element.find('button.action.primary.checkout').clone();
+            element.prepend(topButton);
+        }
     });
 
     function changeMinicartStyle() {

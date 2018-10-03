@@ -11556,8 +11556,8 @@
 "Subtotal Only","Subtotal Only",module,Magento_Tax
 "(Excl. Tax)","(Zzgl. Steuern)",module,Magento_Tax
 "(Incl. Tax)","(Inkl. MwSt.)",module,Magento_Tax
-"Order Total Excl. Tax","Order Total Excl. Tax",module,Magento_Tax
-"Order Total Incl. Tax","Bestellsumme inkl. MwSt.",module,Magento_Tax
+"Order Total Excl. Tax","Gesamtsumme inkl. Mwst.",module,Magento_Tax
+"Order Total Incl. Tax","Gesamtsumme ohne Mwst.",module,Magento_Tax
 "Order Total","Bestellsumme",module,Magento_Tax
 "You will be charged for","You will be charged for",module,Magento_Tax
 "Code","Code",module,Magento_TaxImportExport

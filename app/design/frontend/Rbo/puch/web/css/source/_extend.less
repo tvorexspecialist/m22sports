@@ -1670,16 +1670,38 @@ body.account{
 .account .sidebar.sidebar-additional .block {
   width: 284px !important;
 }
-.registration div form {
+#registration div form {
   margin-top: 20px;
 }
-.registration div form .action.primary {
+#registration div form .action.primary {
   height: 32px;
   font: 13px Arial;
   font-size: 100%;
   font-weight: bold;
   color: #222 !important;
 }
+.checkout-cart-index #form-validate {
+  padding-right: 20px;
+}
+.checkout-cart-index .page-main .column.main .cart-container .cart-summary {
+  padding-right: 20px;
+}
+.checkout-cart-index .top-button-wrapper {
+  margin-right: 20px;
+}
+.checkout-cart-index .action.primary.checkout {
+  float: right;
+  width: auto;
+  border-radius: 0.3em;
+  padding: 0.5em 0.6em;
+  border: 1px solid #808080;
+  font-size: 1.8rem;
+  display: inline-block;
+}
+.checkout-cart-index .page-main .column.main .cart-container {
+  padding-top: 0;
+}
+
 @media screen and (max-width: 1410px) {
   .page-layout-1column .column.main {
     margin: 0;
@@ -1960,11 +1982,35 @@ body.account{
   .checkout-cart-index .page-main .column.main .cart-container .form-cart .action.update {
     float: none;
   }
-  .registration div form .action.primary {
+  #registration div form .action.primary {
     height: 32px;
     width: 100%;
   }
+  .checkout-cart-index .top-button-wrapper {
+    margin-right: 0;
+  }
+  .checkout-cart-index .action.primary.checkout {
+    margin-bottom: 20px;
+  }
+  .cart-summary .block .title strong {
+    display: inline-block;
+    margin-top: 14px;
+    margin-bottom: 5px;
+  }
+  .checkout-cart-index .page-main .column.main .cart-container .cart-summary {
+    padding-right: 0;
+  }
 }
+@media screen and (max-width: 640px) {
+  .checkout-cart-index .action.primary.checkout {
+    float: none;
+    width: 100%;
+  }
+  .checkout-cart-index .top-button-wrapper {
+    padding: 0 15px;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .columns .column.main .content-main-wrapper .content-main-container {
     margin: 0;
@@ -2041,4 +2087,7 @@ body.account{
   -webkit-box-ordinal-group: 1;
   -moz-box-ordinal-group: 1;
   box-ordinal-group: 1;
+}
+.checkout-cart-index .cart-discount {
+  display: none;
 }

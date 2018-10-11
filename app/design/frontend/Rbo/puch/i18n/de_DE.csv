@@ -2874,7 +2874,7 @@
 "Loading...","Wird geladen …",module,Magento_Checkout
 "Order #","Bestellung #",module,Magento_Checkout
 "Proceed to Checkout","Zur Kasse",module,Magento_Checkout
-"Proceed to Checkout ","Bestellung aufgeben",module,Magento_Checkout
+"Proceed to Checkout ","Zur Kasse",module,Magento_Checkout
 "Product Name","Artikelname",module,Magento_Checkout
 "Incl. Tax","Inkl. MwSt.",module,Magento_Checkout
 "Your order number is: %1.","Ihre Bestellnummer lautet: %1.",module,Magento_Checkout
@@ -11724,7 +11724,7 @@
 "Empty","Zeige",module,Magento_Theme
 "1 column","1 Spalte",module,Magento_Theme
 "Configuration","Konfiguration",module,Magento_Theme
-"Default welcome msg!","Standard-Willkommensnachricht!",module,Magento_Theme
+"Default welcome msg!","Sie sind aktuell nicht angemeldet.",module,Magento_Theme
 "Copyright © 2013-present Magento, Inc. All rights reserved.","Copyright © 2013-present Magento, Inc. All rights reserved.",module,Magento_Theme
 "Design Config Grid","Design Config Grid",module,Magento_Theme
 "Rebuild design config grid index","Rebuild design config grid index",module,Magento_Theme
@@ -13060,3 +13060,4 @@
 "Address Book","Adressbuch",theme,frontend/Magento/luma
 "Account Information","Kontoinformation",theme,frontend/Magento/luma
 "No Result","Ihre Suche ergab keine Ergebnisse."
+"Account overview","Zur Konto-Übersicht"

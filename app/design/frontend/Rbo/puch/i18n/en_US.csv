@@ -10,3 +10,4 @@
 "Tax","Taxes (VAT)"
 "Order Total Incl. Tax","Order Total Incl. VAT"
 "Order Total Excl. Tax", "Order Total Excl. VAT"
+"Default welcome msg!","You are currently not logged in.",module,Magento_Theme

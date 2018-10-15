@@ -1390,23 +1390,7 @@ body {
     }
   }
 }
-@media screen and (max-width: 768px) {
-  .header-wrapper__content .header-wrapper__content__line-2 {
-    .header.links {
-      .my-account-top-link, .login-top-link, .register-top-link, .logout-top-link {
-        display: none;
-      }
-    }
-    .nav-sections .header.links {
-      .my-account-top-link, .login-top-link, .register-top-link, .logout-top-link {
-        display: block !important;
-      }
-      .customer-welcome{
-        display: none!important;
-      }
-    }
-  }
-}
+
 
 .wishlist-index-index{
   .products-grid .product-item{
@@ -2164,4 +2148,25 @@ body.account{
   width: 250px;
   margin-left: 30px;
   margin-top: 7px;
+}
+@media screen and (max-width: 768px) {
+  .header-wrapper__content .header-wrapper__content__line-2 {
+    .header.links {
+      .my-account-top-link, .login-top-link, .register-top-link, .logout-top-link {
+        display: none;
+      }
+    }
+    .nav-sections .header.links {
+      .my-account-top-link, .login-top-link, .register-top-link, .logout-top-link {
+        display: block !important;
+      }
+      .customer-welcome{
+        display: none!important;
+      }
+    }
+  }
+  .footer-payments-image img{
+    width: 80%;
+    margin-left: 17px;
+  }
 }

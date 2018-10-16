@@ -2012,7 +2012,7 @@
 "Product online status","Produkt online Status",module,Magento_Catalog
 "Manage Stock","Lagerbestand verwalten",module,Magento_Catalog
 "Qty","Menge",module,Magento_Catalog
-"Qty:","Menge:",module,Magento_Catalog
+"Qty:","Stk:",module,Magento_Catalog
 "Out-of-Stock Threshold","Nicht auf Lager Schwellenwert",module,Magento_Catalog
 "Minimum Qty Allowed in Shopping Cart","Minimal erlaubte Menge im Warenkorb",module,Magento_Catalog
 "Maximum Qty Allowed in Shopping Cart","Maximal erlaubte Menge im Warenkorb",module,Magento_Catalog

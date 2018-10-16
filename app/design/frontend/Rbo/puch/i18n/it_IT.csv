@@ -13053,3 +13053,4 @@ Ulteriori informazioni su come installare l'agent è disponibile <a target=""_bl
 "No Result","La tua ricerca non ha prodotto risultati."
 "Account overview","Panoramica dell'Account"
 "Default welcome msg!","Non sei attualmente collegato.",module,Magento_Theme
+"Qty:","Qta:",module,Magento_Catalog

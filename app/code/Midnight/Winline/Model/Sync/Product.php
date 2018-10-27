@@ -563,7 +563,7 @@ class Product
                         $stack[$j]["*"] = true;
                     } elseif ($nc == "'") {
                         $hex = substr($text, $i + 2, 2);
-                        if ($this->rtfIsPlainText($stack[$j])) {
+                        if (!empty($stack[$j]) && $this->rtfIsPlainText($stack[$j])) {
                             $document .= html_entity_decode("&#" . hexdec($hex) . ";");
                         }
                         $i += 2;

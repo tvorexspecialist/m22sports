@@ -5,7 +5,7 @@
             <schedule>* * * * *</schedule>
         </job>
         <job name="midnight_winline_product_sync_all" instance="Midnight\Winline\Cron\ProductSync" method="syncAll">
-            <schedule>* * * * *</schedule>
+            <schedule>20 * * * *</schedule>
         </job>
         <job name="midnight_winline_customer_sync" instance="Midnight\Winline\Cron\CustomerSync" method="sync">
             <schedule>* * * * *</schedule>

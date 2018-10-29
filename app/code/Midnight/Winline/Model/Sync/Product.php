@@ -654,7 +654,7 @@ class Product
                                 $stack[$j][strtolower($word)] = empty($param) ? true : $param;
                                 break;
                         }
-                        if ($this->rtfIsPlainText($stack[$j])) {
+                        if (!empty($stack[$j]) && $this->rtfIsPlainText($stack[$j])) {
                             $document .= $toText;
                         }
                     }

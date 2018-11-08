@@ -31,7 +31,6 @@ define([
             var shippingTitleString = '';
 
             if(shippingMethod){
-                console.log(shippingMethod['method_title']);
                 if(shippingMethod['method_title'] == null || shippingMethod['method_title'] == 'undefined'){
                     shippingTitleString = shippingMethod['carrier_title'];
                 } else {

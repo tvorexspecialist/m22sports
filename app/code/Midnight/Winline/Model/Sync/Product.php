@@ -220,7 +220,6 @@ class Product
             return;
         }
         $this->log(null, sprintf('Syncing %s products', $numSkus));
-
         foreach ($skus as $sku) {
             $this->syncProduct($sku);
         }
@@ -277,7 +276,7 @@ class Product
             if(!empty($magentoChecksums[$sku])) {
                 if ($magentoChecksums[$sku] != $winlineProduct['checksum']) {
                     $skus[] = $sku;
-                }
+                };
             }else{
                 $skus[] = $sku;
             }
@@ -307,20 +306,23 @@ class Product
             $this->log($sku, 'No SKU given', 'ERR');
         }
         $this->log($sku, 'Start');
-        $product = $this->getProductFactory()->loadByAttribute('sku', $sku);
+        $product = $this->getProductFactory()->setStoreId(0)->loadByAttribute('sku', $sku);
         $data = $this->getWinlineProductData($sku);
         if ($product && $product->getId()) {
             $product = $this->updateProduct($product, $data);
         } else {
             $product = $this->createProduct($data);
         }
+        try {
+            $this->validate($product);
+            $product->save();
+            $this->updateStockItem($product);
+            $this->syncCategories($product, $data);
+            $this->log($sku, 'Done');
+        } catch (LocalizedException $e) {
+            $this->log($sku, 'Can not update product.');
+        }
 
-        $this->validate($product);
-        $product->save();
-        $this->updateStockItem($product);
-        $this->syncCategories($product, $data);
-
-        $this->log($sku, 'Done');
     }
     /**
      * @return string

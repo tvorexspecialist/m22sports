@@ -797,6 +797,7 @@ class Product
             } else {
                 throw new LocalizedException(new \Magento\Framework\Phrase(sprintf(
                     '%s coudln\'t be assigned to %s.',
+                    $product->getSku(),
                     $data['Artikeluntergruppe']
                 )));
             }

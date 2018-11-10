@@ -275,7 +275,7 @@ class Product
         foreach ($winlineProducts as $winlineProduct) {
             $sku = $winlineProduct['sku'];
             if(!empty($magentoChecksums[$sku])) {
-                if ($winlineProduct['checksum'] != $winlineProduct['checksum']) {
+                if ($magentoChecksums[$sku] != $winlineProduct['checksum']) {
                     $skus[] = $sku;
                 }
             }else{
@@ -789,7 +789,6 @@ class Product
             foreach ($categories as $category) {
                 $categoryIdsArr[] = $category->getId();
             }
-
             if (count($categoryIdsArr)) {
                 $this->categoryApiInterface->assignProductToCategories(
                     $product->getSku(),
@@ -798,8 +797,7 @@ class Product
             } else {
                 throw new LocalizedException(new \Magento\Framework\Phrase(sprintf(
                     '%s coudln\'t be assigned to %s.',
-                    $data->getSku(),
-                    $data->getArtikeluntergruppe()
+                    $data['Artikeluntergruppe']
                 )));
             }
         }

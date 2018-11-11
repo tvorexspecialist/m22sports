@@ -4,6 +4,7 @@ namespace Midnight\Winline\Model\Sync;
 
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Catalog\Model\ProductFactory;
+use Magento\Framework\Exception\NoSuchEntityException;
 use Midnight\Winline\Model\ResourceModel\Product as ResourceProduct;
 use Midnight\Winline\Logger\Logger;
 use \Magento\Framework\App\Filesystem\DirectoryList;
@@ -23,6 +24,7 @@ use \Magento\Catalog\Model\Product\Attribute\Source\Status;
 use \Magento\Catalog\Model\Product\Visibility;
 use Magento\Catalog\Model\CategoryFactory;
 use \Magento\Framework\App\State;
+use Magento\Catalog\Api\ProductRepositoryInterface;
 
 class Product
 {
@@ -296,8 +298,7 @@ class Product
 
     /**
      * @param $sku
-     * @throws LocalizedException
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     * @return bool
      * @throws \Zend_Db_Statement_Exception
      */
     public function syncProduct($sku)
@@ -306,23 +307,39 @@ class Product
             $this->log($sku, 'No SKU given', 'ERR');
         }
         $this->log($sku, 'Start');
-        $product = $this->getProductFactory()->setStoreId(0)->loadByAttribute('sku', $sku);
+        //$product = $this->getProductFactory()->setStoreId(0)->loadByAttribute('sku', $sku);
+
+
         $data = $this->getWinlineProductData($sku);
-        if ($product && $product->getId()) {
+        if ($this->getProductBySku($sku)) {
+            $product = $this->getProductBySku($sku);
             $product = $this->updateProduct($product, $data);
-        } else {
-            $product = $this->createProduct($data);
-        }
-        try {
             $this->validate($product);
-            $product->save();
+            $product = $this->productRepository->save($product);
             $this->updateStockItem($product);
             $this->syncCategories($product, $data);
-            $this->log($sku, 'Done');
-        } catch (LocalizedException $e) {
-            $this->log($sku, 'Can not update product.');
+        } else {
+            $product = $this->createProduct($data);
+            $this->validate($product);
+            try {
+               $product = $product->save();
+                $this->updateStockItem($product);
+                $this->syncCategories($product, $data);
+            } catch (LocalizedException $e) {
+                $this->log($sku, 'Can not update product.');
+            }
         }
+        $this->log($sku, 'Done');
+    }
 
+    private function getProductBySku($sku)
+    {
+        try {
+            return $this->productRepository->get($sku);
+        } catch (NoSuchEntityException $e)
+        {
+            return false;
+        }
     }
     /**
      * @return string
@@ -409,7 +426,7 @@ class Product
         $product->setStatus($this->getStatus($data));
         $product->setTaxClassId($this->getTaxClassId($data));
         $product->setStoreId(0);
-        $product->setWebsiteIds($this->getWebsiteIDs($data));
+        //$product->setWebsiteIds($this->getWebsiteIDs($data));
         $product->setAttributeSetId($this->getAttributeSetId($data));
         $product->setName($this->getName($data));
         $product->setDescription($this->getDescription($data));
@@ -749,7 +766,7 @@ class Product
 
     /**
      * @param array $data
-     * @return MagentoProduct
+     * @return bool|MagentoProduct
      * @throws \Exception
      */
     private function createProduct(array $data)

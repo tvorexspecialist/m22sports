@@ -25,7 +25,7 @@ class Dismissed extends \Magento\Framework\View\Element\Template
     public function getOrders()
     {
         $reviewReadyFilter = \Midnight\Orderreview\Model\Review\State::DISMISSED;
-        return $this->listHelper->getFilteredOrderCollection($reviewReadyFilter, 10);
+        return $this->listHelper->getFilteredOrderCollection($reviewReadyFilter, 25);
     }
 
     public function getPaymentMethod($order)

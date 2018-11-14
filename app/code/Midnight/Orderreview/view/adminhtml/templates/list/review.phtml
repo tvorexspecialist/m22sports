@@ -21,11 +21,13 @@ $_orders = $this->getOrders();
             ?>
             <?php foreach ($_orders as $_order): ?>
                 <?php
+                $firstname = !empty($_order->getBillingAddress()->getFirstname()) ? $_order->getBillingAddress()->getFirstname() : '';
+                $lastname = !empty($_order->getBillingAddress()->getLastname()) ? $_order->getBillingAddress()->getLastname() : '';
                 $status = $this->getStatus($_order);
                 ?>
                 <tr class="data-row order <?= $this->getOrderClass($_order) ?> <?= $iterator++ % 2 ? ' _odd-row' : '' ?>">
                     <td>
-                        <a href="<?= $this->getOrderUrl('*/*/view', array('id' => $_order->getId())) ?>"><?= $_order->getCustomerName() ?></a>
+                        <a href="<?= $this->getOrderUrl('*/*/view', array('id' => $_order->getId())) ?>"><?= $firstname . ' ' . $lastname ?></a>
                     </td>
                     <td><?= $_order->getCreatedAt() ?></td>
                     <td><?= $_order->formatPrice($_order['base_grand_total']) ?></td>

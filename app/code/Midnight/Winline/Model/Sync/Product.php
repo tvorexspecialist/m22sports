@@ -427,7 +427,7 @@ class Product
         $product->setTaxClassId($this->getTaxClassId($data));
         $product->setStoreId(0);
         //$product->setWebsiteIds($this->getWebsiteIDs($data));
-        $product->setAttributeSetId($this->getAttributeSetId($data));
+        $product->setAttributeSetId(4);
         $product->setName($this->getName($data));
         $product->setDescription($this->getDescription($data));
         $product->setShortDescription($this->getShortDescription($data));

@@ -25,7 +25,7 @@ class Confirmed extends \Magento\Framework\View\Element\Template
     public function getOrders()
     {
         $reviewReadyFilter = \Midnight\Orderreview\Model\Review\State::READY_FOR_WINLINE;
-        return $this->listHelper->getFilteredOrderCollection($reviewReadyFilter, 25);
+        return $this->listHelper->getFilteredOrderCollection($reviewReadyFilter, 25, "DESC");
     }
 
     public function getPaymentMethod($order)

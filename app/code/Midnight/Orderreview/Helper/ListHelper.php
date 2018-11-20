@@ -101,7 +101,7 @@ class ListHelper extends \Magento\Framework\App\Helper\AbstractHelper
         return '';
     }
 
-    public function getFilteredOrderCollection($statusFilter = null, $pageSize = null){
+    public function getFilteredOrderCollection($statusFilter = null, $pageSize = null, $sort = "ASC"){
         $collection = $this->orderCollection->create()->getCollection();
         if(!empty($statusFilter)){
                 $collection->addFieldToFilter('winline_review_state', array('in' => array($statusFilter)));
@@ -109,7 +109,7 @@ class ListHelper extends \Magento\Framework\App\Helper\AbstractHelper
         if(!empty($pageSize)){
             $collection->setPageSize($pageSize)->setCurPage(1);
         }
-        $collection->setOrder('created_at', 'ASC');
+        $collection->setOrder('created_at', $sort);
 
         return $collection;
     }

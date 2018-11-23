@@ -2897,6 +2897,7 @@
 "Email Address","E-Mailadresse",module,Magento_Checkout
 "Password","Passwort",module,Magento_Checkout
 "Forgot Your Password?","Passwort vergessen?",module,Magento_Checkout
+"Forgot Your Password","Passwort vergessen?"
 "My billing and shipping address are the same","Meine Rechnungs- und Lieferanschrift sind identisch",module,Magento_Checkout
 "Update","Aktualisieren",module,Magento_Checkout
 "Cancel","Abbrechen",module,Magento_Checkout

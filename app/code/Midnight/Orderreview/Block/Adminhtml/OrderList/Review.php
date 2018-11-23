@@ -25,7 +25,7 @@ class Review extends \Magento\Framework\View\Element\Template
     public function getOrders()
     {
         $reviewReadyFilter = \Midnight\Orderreview\Model\Review\State::READY_FOR_REVIEW;
-        return $this->listHelper->getFilteredOrderCollection($reviewReadyFilter);
+        return $this->listHelper->getFilteredOrderCollection($reviewReadyFilter, null, "DESC");
     }
 
     public function getPaymentMethod($order)

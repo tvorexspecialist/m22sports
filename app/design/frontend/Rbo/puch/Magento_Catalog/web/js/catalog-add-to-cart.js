@@ -96,7 +96,6 @@ define([
 
                 /** @inheritdoc */
                 success: function (res) {
-                    console.log('333333');
                     var eventData, parameters;
 
                     $(document).trigger('ajax:addToCart', form.data().productSku);

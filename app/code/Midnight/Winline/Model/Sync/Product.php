@@ -147,6 +147,10 @@ class Product
      * @var SearchCriteriaBuilder
      */
     private $searchCriteriaBuilder;
+    /**
+     * @var \Magento\Eav\Model\ResourceModel\Entity\Attribute\Set\CollectionFactory
+     */
+    private $attributeSetCollection;
 
     /**
      * Product constructor.
@@ -186,7 +190,8 @@ class Product
                                 SearchCriteriaInterface $criteria,
                                 CategoryFactory $categoryFactory,
                                 State $state,
-                                SearchCriteriaBuilder $searchCriteriaBuilder)
+                                SearchCriteriaBuilder $searchCriteriaBuilder,
+                                \Magento\Eav\Model\ResourceModel\Entity\Attribute\Set\CollectionFactory $attributeSetCollection)
     {
        $this->magentoProducts = $magentoProductFactory;
        $this->winlineProduct = $winlineProduct;
@@ -206,6 +211,7 @@ class Product
        $this->categoryFactory = $categoryFactory;
        $this->state = $state;
        $this->searchCriteriaBuilder = $searchCriteriaBuilder;
+       $this->attributeSetCollection = $attributeSetCollection;
     }
 
     /**
@@ -214,7 +220,7 @@ class Product
      * @throws \Zend_Db_Statement_Exception
      */
     public function sync()
-    {
+    {;
         $skus = $this->getAsyncProductSkus();
         $numSkus = count($skus);
         if ($numSkus === 0) {
@@ -426,8 +432,8 @@ class Product
         $product->setStatus($this->getStatus($data));
         $product->setTaxClassId($this->getTaxClassId($data));
         $product->setStoreId(0);
-        //$product->setWebsiteIds($this->getWebsiteIDs($data));
-        $product->setAttributeSetId(4);
+        $product->setWebsiteIds($this->getWebsiteIDs($data));
+        $product->setAttributeSetId(!empty($product->getAttributeSetId()) ? $product->getAttributeSetId() : '4');
         $product->setName($this->getName($data));
         $product->setDescription($this->getDescription($data));
         $product->setShortDescription($this->getShortDescription($data));

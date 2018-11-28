@@ -71,15 +71,22 @@ class Homecategories extends \Magento\Framework\View\Element\Template {
             if($parentCategory) {
                 $subcategories = $parentCategory->getChildren();
                 $categoriesData = array();
+                $categoriesDataPosition = array();
                 if($subcategories){
                     $arrayIds = explode(',', $subcategories);
                     $categoriesData = array();
                     foreach ($arrayIds as $childId){
                         $category = $this->_categoryFactory->create()->load($childId);
                         $categoriesData[$childId] = $category;
+                        $categoriesDataPosition[$childId] = $category->getPosition();
                     }
                 }
-                return $categoriesData;
+                asort($categoriesDataPosition);
+                $sortedCategories = array();
+                foreach ($categoriesDataPosition as $id => $position){
+                    $sortedCategories[$id] = $categoriesData[$id];
+                }
+                return $sortedCategories;
             } else {
                 return false;
             }

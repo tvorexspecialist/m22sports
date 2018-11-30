@@ -25,6 +25,8 @@ use \Magento\Catalog\Model\Product\Visibility;
 use Magento\Catalog\Model\CategoryFactory;
 use \Magento\Framework\App\State;
 use Magento\Catalog\Api\ProductRepositoryInterface;
+use Magento\Catalog\Helper\Image;
+use Magento\Catalog\Model\Product\Gallery\ReadHandler;
 
 class Product
 {
@@ -151,6 +153,14 @@ class Product
      * @var \Magento\Eav\Model\ResourceModel\Entity\Attribute\Set\CollectionFactory
      */
     private $attributeSetCollection;
+    /**
+     * @var Image
+     */
+    private $image;
+    /**
+     * @var ReadHandler
+     */
+    private $readHandler;
 
     /**
      * Product constructor.
@@ -172,6 +182,7 @@ class Product
      * @param CategoryFactory $categoryFactory
      * @param State $state
      * @param SearchCriteriaBuilder $searchCriteriaBuilder
+     * @param Action
      */
     public function __construct(ProductFactory $magentoProductFactory,
                                 ResourceProduct $winlineProduct,
@@ -191,7 +202,9 @@ class Product
                                 CategoryFactory $categoryFactory,
                                 State $state,
                                 SearchCriteriaBuilder $searchCriteriaBuilder,
-                                \Magento\Eav\Model\ResourceModel\Entity\Attribute\Set\CollectionFactory $attributeSetCollection)
+                                \Magento\Eav\Model\ResourceModel\Entity\Attribute\Set\CollectionFactory $attributeSetCollection,
+                                Image $image,
+                                ReadHandler $readHandler)
     {
        $this->magentoProducts = $magentoProductFactory;
        $this->winlineProduct = $winlineProduct;
@@ -212,6 +225,8 @@ class Product
        $this->state = $state;
        $this->searchCriteriaBuilder = $searchCriteriaBuilder;
        $this->attributeSetCollection = $attributeSetCollection;
+       $this->image = $image;
+       $this->readHandler = $readHandler;
     }
 
     /**
@@ -322,6 +337,22 @@ class Product
             $product = $this->updateProduct($product, $data);
             $this->validate($product);
             $product = $this->productRepository->save($product);
+            if (!empty($product->getMediaGalleryImages()->getFirstItem())){
+                $file = $product->getMediaGalleryImages()->getFirstItem()->getFile();
+
+                if (empty($product->getImage()) || $product->getImage() == 'no_selection') {
+                    $product->setImage($file);
+                    $product->getResource()->saveAttribute($product, 'image');
+                }
+                if (empty($product->getSmallImage()) || $product->getSmallImage() == 'no_selection') {
+                    $product->setSmallImage($file);
+                    $product->getResource()->saveAttribute($product, 'small_image');
+                }
+                if (empty($product->getThumbnail()) || $product->getThumbnail() == 'no_selection') {
+                    $product->setThumbnail($file);
+                    $product->getResource()->saveAttribute($product, 'thumbnail');
+                }
+            }
             $this->updateStockItem($product);
             $this->syncCategories($product, $data);
         } else {
@@ -404,6 +435,7 @@ class Product
     {
         $before = $product->getData();
         $this->hydrateProduct($product, $data);
+
         $after = $product->getData();
         // Check types of $data items
         foreach ($before as $key => $val) {
@@ -420,6 +452,11 @@ class Product
         return $product;
     }
 
+    private function updateImages()
+    {
+
+    }
+
     /**
      * @param MagentoProduct $product
      * @param array $data
@@ -432,7 +469,7 @@ class Product
         $product->setStatus($this->getStatus($data));
         $product->setTaxClassId($this->getTaxClassId($data));
         $product->setStoreId(0);
-        $product->setWebsiteIds($this->getWebsiteIDs($data));
+        $product->setWebsiteIds([1]);
         $product->setAttributeSetId(!empty($product->getAttributeSetId()) ? $product->getAttributeSetId() : '4');
         $product->setName($this->getName($data));
         $product->setDescription($this->getDescription($data));
@@ -443,6 +480,13 @@ class Product
         $product->setWinlineChecksum($this->getWinlineChecksum($data));
         $product->setNewsFromDate($this->getNewsFromDate($data));
         $product->setNewsToDate($this->getNewsToDate($data));
+        $product->setSort($this->getSort($data));
+    }
+
+    private function getSort($data)
+    {
+        $sortOrder = $data['Webartikel'];
+        return !empty($sortOrder) ? $sortOrder : 0;
     }
 
     /**

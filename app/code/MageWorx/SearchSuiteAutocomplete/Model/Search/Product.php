@@ -111,7 +111,9 @@ class Product implements \MageWorx\SearchSuiteAutocomplete\Model\SearchInterface
         }
 
         foreach ($productCollection as $product) {
-            $responseData['data'][] = array_intersect_key($this->getProductData($product), array_flip($productResultFields));
+            if($exactProduct->getId() != $product->getId()) {
+                $responseData['data'][] = array_intersect_key($this->getProductData($product), array_flip($productResultFields));
+            }
         }
 
         $responseData['size'] = $productCollection->getSize();

@@ -6,6 +6,7 @@
 
 namespace MageWorx\SearchSuiteAutocomplete\Model\Search;
 
+use Magento\Framework\Exception\LocalizedException;
 use \MageWorx\SearchSuiteAutocomplete\Helper\Data as HelperData;
 use \Magento\Search\Helper\Data as SearchHelper;
 use \Magento\Catalog\Model\Layer\Resolver as LayerResolver;
@@ -45,6 +46,19 @@ class Product implements \MageWorx\SearchSuiteAutocomplete\Model\SearchInterface
     private $queryFactory;
 
     /**
+     * @var \Magento\Catalog\Api\ProductRepositoryInterface
+     */
+    private $productRepository;
+
+    /**
+     * @var \Magento\Catalog\Model\Product
+     */
+    private $product;
+    /**
+     * @var \Magento\Catalog\Model\ResourceModel\Product\Collection
+     */
+    private $collection;
+    /**
      * Product constructor.
      *
      * @param HelperData $helperData
@@ -58,7 +72,10 @@ class Product implements \MageWorx\SearchSuiteAutocomplete\Model\SearchInterface
         SearchHelper $searchHelper,
         LayerResolver $layerResolver,
         ObjectManager $objectManager,
-        QueryFactory $queryFactory
+        QueryFactory $queryFactory,
+        \Magento\Catalog\Api\ProductRepositoryInterface $productRepository,
+        \Magento\Catalog\Model\Product $product,
+        \Magento\Catalog\Model\ResourceModel\Product\Collection $collection
     ) {
     
         $this->helperData = $helperData;
@@ -66,6 +83,9 @@ class Product implements \MageWorx\SearchSuiteAutocomplete\Model\SearchInterface
         $this->layerResolver = $layerResolver;
         $this->objectManager = $objectManager;
         $this->queryFactory = $queryFactory;
+        $this->productRepository = $productRepository;
+        $this->product = $product;
+        $this->collection = $collection;
     }
 
     /**
@@ -85,6 +105,10 @@ class Product implements \MageWorx\SearchSuiteAutocomplete\Model\SearchInterface
         $productResultFields[] = ProductFields::URL;
 
         $productCollection = $this->getProductCollection($queryText);
+        $exactProduct = $this->getExactProductBySku($queryText);
+        if (!empty($exactProduct)){
+            $responseData['data'][] = array_intersect_key($this->getProductData($exactProduct), array_flip($productResultFields));
+        }
 
         foreach ($productCollection as $product) {
             $responseData['data'][] = array_intersect_key($this->getProductData($product), array_flip($productResultFields));
@@ -115,6 +139,27 @@ class Product implements \MageWorx\SearchSuiteAutocomplete\Model\SearchInterface
         $productCollection->getSelect()->limit($productResultNumber);
 
         return $productCollection;
+    }
+
+    /**
+     * @param $sku
+     * @return bool|\Magento\Catalog\Model\AbstractModel|\Magento\Framework\DataObject
+     */
+    protected function getExactProductBySku($sku)
+    {
+        try {
+            $product = $this->product->loadByAttribute('sku', $sku);
+        } catch (LocalizedException $e) {
+        }
+        if (empty($product)) {
+            $product = $this->collection
+                ->addAttributeToSelect('name')
+                ->addAttributeToSelect('url')
+                ->addAttributeToSelect('sku')
+                ->addAttributeToFilter('sku', ['like' => $sku.'%'])
+                ->getFirstItem();
+        }
+        return !empty($product->getId()) ? $product : false;
     }
 
     /**

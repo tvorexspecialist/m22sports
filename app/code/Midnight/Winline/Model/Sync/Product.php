@@ -5,6 +5,7 @@ namespace Midnight\Winline\Model\Sync;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Catalog\Model\ProductFactory;
 use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Setup\Exception;
 use Midnight\Winline\Model\ResourceModel\Product as ResourceProduct;
 use Midnight\Winline\Logger\Logger;
 use \Magento\Framework\App\Filesystem\DirectoryList;
@@ -85,6 +86,8 @@ class Product
      * @var ResourceProduct
      */
     private $winlineProduct;
+
+    private $connection;
     /**
      * @var Logger
      */
@@ -204,7 +207,8 @@ class Product
                                 SearchCriteriaBuilder $searchCriteriaBuilder,
                                 \Magento\Eav\Model\ResourceModel\Entity\Attribute\Set\CollectionFactory $attributeSetCollection,
                                 Image $image,
-                                ReadHandler $readHandler)
+                                ReadHandler $readHandler,
+                                \Magento\Framework\App\ResourceConnection $connection)
     {
        $this->magentoProducts = $magentoProductFactory;
        $this->winlineProduct = $winlineProduct;
@@ -227,6 +231,7 @@ class Product
        $this->attributeSetCollection = $attributeSetCollection;
        $this->image = $image;
        $this->readHandler = $readHandler;
+       $this->connection = $connection;
     }
 
     /**
@@ -446,6 +451,9 @@ class Product
             $typeAfter = gettype($after[$key]);
             if ($typeBefore !== $typeAfter) {
                 $message = sprintf('Wrong type: %s (%s/%s)', $key, $typeBefore, $typeAfter);
+                if ($key == 'sort') {
+                    $message = sprintf("type before: " . $typeBefore, "Type after:" . $typeAfter);
+                }
                 $this->log($data['Artikelnummer'], $message, 'warning');
             }
         }
@@ -486,7 +494,8 @@ class Product
     private function getSort($data)
     {
         $sortOrder = $data['Webartikel'];
-        return !empty($sortOrder) ? (int)$sortOrder : 0;
+
+        return !empty($sortOrder) ? (string)$sortOrder : "0";
     }
 
     /**
@@ -824,9 +833,63 @@ class Product
         $this->log($data['Artikelnummer'], 'Create','info');
 
         $product = $this->magentoProducts->create();
+        $urlKey = $this->getUrlKey($data);
         $product->setSku($data['Artikelnummer']);
+        $product->setUrlKey($urlKey);
         $this->hydrateProduct($product, $data);
         return $product;
+    }
+
+    /**
+     * @param $data
+     * @return string
+     */
+    private function getUrlKey($data) {
+        $url = preg_replace('#[^0-9a-z]+#i', '-', $this->getName($data));
+        $urlKey = strtolower($url);
+        $storeId = (int) $this->storeManager->getStore()->getStoreId();
+        $isUnique = $this->checkUrlKeyDuplicates($data['Artikelnummer'], $urlKey, $storeId);
+        if ($isUnique) {
+            return $urlKey;
+        } else {
+            return $urlKey . "-" . $this->sanitizeSku($data['Artikelnummer']);
+        }
+    }
+
+    /**
+     * @param $sku
+     * @return string
+     */
+    private function sanitizeSku($sku) {
+        $sanitize = preg_replace('.', '', $sku);
+        return strtolower($sanitize);
+    }
+
+    /**
+     * @param $sku
+     * @param $urlKey
+     * @param $storeId
+     * @return bool
+     */
+    private function checkUrlKeyDuplicates($sku, $urlKey, $storeId)
+    {
+        $connection = $this->connection->getConnection(\Magento\Framework\App\ResourceConnection::DEFAULT_CONNECTION);
+
+        $sql = $connection->select()->from(
+            ['url_rewrite' => $connection->getTableName('url_rewrite')], ['request_path', 'store_id']
+        )->joinLeft(
+            ['cpe' => $connection->getTableName('catalog_product_entity')], "cpe.entity_id = url_rewrite.entity_id"
+        )->where('request_path IN (?)', $urlKey)
+            ->where('store_id IN (?)', $storeId)
+            ->where('cpe.sku not in (?)', $sku);
+
+        $urlKeyDuplicates = $connection->fetchAssoc($sql);
+
+        if (!empty($urlKeyDuplicates)) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     /**

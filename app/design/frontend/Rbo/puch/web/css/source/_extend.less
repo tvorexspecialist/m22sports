@@ -463,6 +463,9 @@ body {
       padding: 25px;
       padding-right: 38.2%;
       background-image: -webkit-linear-gradient(left top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+      background-image: -ms-linear-gradient(left top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+      background-image: -o-linear-gradient(left top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+      background-image: linear-gradient(left top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
       color: white;
       text-shadow: black 1px 1px 0px, rgba(0, 0, 0, 0.49804) 0px 0px;
       line-height: 1.5;
@@ -1680,6 +1683,7 @@ body.account{
       padding: 0;
       position: relative;
       top: -8px;
+      width: 200px;
     }
   }
 }

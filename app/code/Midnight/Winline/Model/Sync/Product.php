@@ -85,8 +85,6 @@ class Product
      * @var ResourceProduct
      */
     private $winlineProduct;
-
-    private $connection;
     /**
      * @var Logger
      */
@@ -206,8 +204,7 @@ class Product
                                 SearchCriteriaBuilder $searchCriteriaBuilder,
                                 \Magento\Eav\Model\ResourceModel\Entity\Attribute\Set\CollectionFactory $attributeSetCollection,
                                 Image $image,
-                                ReadHandler $readHandler,
-                                \Magento\Framework\App\ResourceConnection $connection)
+                                ReadHandler $readHandler)
     {
        $this->magentoProducts = $magentoProductFactory;
        $this->winlineProduct = $winlineProduct;
@@ -230,7 +227,6 @@ class Product
        $this->attributeSetCollection = $attributeSetCollection;
        $this->image = $image;
        $this->readHandler = $readHandler;
-       $this->connection = $connection;
     }
 
     /**
@@ -367,7 +363,7 @@ class Product
                 $this->updateStockItem($product);
                 $this->syncCategories($product, $data);
             } catch (LocalizedException $e) {
-                $this->log($sku, 'Can not update product. Error:' .$e->getMessage());
+                $this->log($sku, 'Can not update product.');
             }
         }
         $this->log($sku, 'Done');

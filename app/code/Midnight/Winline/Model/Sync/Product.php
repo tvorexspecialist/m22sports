@@ -486,7 +486,7 @@ class Product
     private function getSort($data)
     {
         $sortOrder = $data['Webartikel'];
-        return !empty($sortOrder) ? (int)$sortOrder : 0;
+        return !empty($sortOrder) ? (string)$sortOrder : 0;
     }
 
     /**

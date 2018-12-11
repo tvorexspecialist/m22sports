@@ -363,7 +363,7 @@ class Product
                 $this->updateStockItem($product);
                 $this->syncCategories($product, $data);
             } catch (LocalizedException $e) {
-                $this->log($sku, 'Can not update product.');
+                $this->log($sku, 'Can not update product. Error:' .$e->getMessage());
             }
         }
         $this->log($sku, 'Done');
@@ -486,7 +486,7 @@ class Product
     private function getSort($data)
     {
         $sortOrder = $data['Webartikel'];
-        return !empty($sortOrder) ? $sortOrder : 0;
+        return !empty($sortOrder) ? (int)$sortOrder : 0;
     }
 
     /**

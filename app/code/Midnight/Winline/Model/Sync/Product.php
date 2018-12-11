@@ -85,6 +85,8 @@ class Product
      * @var ResourceProduct
      */
     private $winlineProduct;
+
+    private $connection;
     /**
      * @var Logger
      */
@@ -204,7 +206,8 @@ class Product
                                 SearchCriteriaBuilder $searchCriteriaBuilder,
                                 \Magento\Eav\Model\ResourceModel\Entity\Attribute\Set\CollectionFactory $attributeSetCollection,
                                 Image $image,
-                                ReadHandler $readHandler)
+                                ReadHandler $readHandler,
+                                \Magento\Framework\App\ResourceConnection $connection)
     {
        $this->magentoProducts = $magentoProductFactory;
        $this->winlineProduct = $winlineProduct;
@@ -227,6 +230,7 @@ class Product
        $this->attributeSetCollection = $attributeSetCollection;
        $this->image = $image;
        $this->readHandler = $readHandler;
+       $this->connection = $connection;
     }
 
     /**
@@ -486,7 +490,7 @@ class Product
     private function getSort($data)
     {
         $sortOrder = $data['Webartikel'];
-        return !empty($sortOrder) ? (string)$sortOrder : 0;
+        return !empty($sortOrder) ? (string)$sortOrder : "0";
     }
 
     /**

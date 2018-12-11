@@ -833,9 +833,9 @@ class Product
         $this->log($data['Artikelnummer'], 'Create','info');
 
         $product = $this->magentoProducts->create();
-        $urlKey = $this->getUrlKey($data);
+        //$urlKey = $this->getUrlKey($data);
         $product->setSku($data['Artikelnummer']);
-        $product->setUrlKey($urlKey);
+        //$product->setUrlKey($urlKey);
         $this->hydrateProduct($product, $data);
         return $product;
     }

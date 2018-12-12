@@ -26,4 +26,5 @@
     </virtualType>
     <preference for="Magento\Catalog\Model\Category\DataProvider" type="Rbo\CustomScripts\Model\Category\DataProvider" />
     <preference for="Heidelpay\Gateway\Controller\Index\Response" type="Rbo\CustomScripts\Controller\Index\Response" />
+    <preference for="Magento\UrlRewrite\Model\Storage\DbStorage" type="Rbo\CustomScripts\Rewrite\Model\Storage\DbStorage" />
 </config>

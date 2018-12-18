@@ -619,10 +619,10 @@ body {
             }
             .product-item-details {
               .product-item-name {
-                height: 4.5em;
+                height: 85px;
                 a {
                   line-height: 1.5;
-                  height: 4.5em;
+                  height: 84px;
                   margin-bottom: .75em;
                   overflow: hidden;
                   font-size: inherit;
@@ -639,7 +639,7 @@ body {
               }
               .product-item-description {
                 margin: 0;
-                height: 3.6em;
+                height: 33px;
                 line-height: 1.2;
                 font-style: italic;
                 margin-bottom: 1.5em;
@@ -1900,6 +1900,40 @@ body.account{
     width: 268px;
   }
 }
+@media screen and (max-width: 1180px) {
+  .page-layout-1column .block.widget .products-grid .product-item {
+    height: auto;
+    padding-bottom: 0;
+  }
+  .products-grid .product-item-info:hover {
+    border: none;
+    box-shadow: none;
+  }
+  .products-grid .product-item .actions-secondary {
+    min-width: 15% !important;
+    margin: 0;
+    padding: 0;
+    display: block;
+    float: none;
+    width: 50px;
+    max-width: 100%;
+    margin-top: 50px;
+    position: relative;
+    left: 50%;
+    margin-left: -37px;
+  }
+  .grid-product-description {
+    margin-bottom: 15px;
+  }
+  .products-grid .product-item .actions-primary {
+    position: relative;
+    top: -32px;
+  }
+  .products-grid .product-item-actions {
+    margin: 0;
+  }
+}
+
 @media (min-width: 1040px) and (max-width: 1100px) {
   .navigation .level0 .level-top {
     padding: 0 13px!important;
@@ -1983,6 +2017,22 @@ body.account{
   .nav-sections {
     margin: 0 auto;
     margin-bottom: -10px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .widget-new-grid .product-item .product-item-info .price-final_price.price-box {
+    float: none;
+    margin: 0 auto;
+  }
+  .products-grid .product-item .actions-primary {
+    position: static;
+    float: none;
+    margin: 18px auto;
+    display: block;
+  }
+  .products-grid .product-item .actions-secondary {
+    position: static;
+    margin: 0 auto;
   }
 }
 @media screen and (max-width: 810px) {
